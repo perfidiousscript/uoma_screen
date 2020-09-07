@@ -24,11 +24,11 @@ a {
   box-sizing: border-box;
 }
 
-.choice {
-  padding: 1%;
+.text {
+  padding: 0 0 0 1%;
 }
 
-.selected {
-  background-color: chartreuse;
-  color: black;
+.choice {
+  padding: 1%;
+  border: 1px solid black;
 }
