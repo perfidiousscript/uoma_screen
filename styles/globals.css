@@ -1,9 +1,11 @@
 html,
 body {
-  padding: 0;
+  padding: 7%;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system, monospace, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, sans-serif;
+  background-color: black;
+  color: chartreuse;
 }
 
 a {
@@ -13,4 +15,13 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.choice {
+  padding: 1%;
+}
+
+.selected {
+  background-color: chartreuse;
+  color: black;
 }
