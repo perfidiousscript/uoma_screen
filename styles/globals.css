@@ -1,9 +1,16 @@
+@font-face {
+  font-family: "Classic Console";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Classic Console"), local("ClassicConsole"),
+    url("./fonts/clacon.ttf");
+}
+
 html,
 body {
   padding: 7%;
   margin: 0;
-  font-family: -apple-system, monospace, BlinkMacSystemFont, Segoe UI, Roboto,
-    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, sans-serif;
+  font-family: "Classic Console", monospace;
   background-color: black;
   color: chartreuse;
 }
