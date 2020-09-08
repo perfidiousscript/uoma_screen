@@ -3,15 +3,16 @@ import React, { useEffect, useState } from "react";
 export default function First() {
   const [selectedChoice, setChoice] = useState(null);
 
-  const [shownText, setShownText] = useState("");
-
-  const lineText =
-    "An Echo \n That’s what it is: an echo. \n I’ll remember what I was, at some point. It will come back to me.";
+  var [shownText, setShownText] = useState(" ");
+  var [shownText_1, setShownText_1] = useState(" ");
+  var [shownText_2, setShownText_2] = useState("");
+  var [textArrayIndex, setTextArrayIndex] = useState(0);
 
   const textArray = [
     ["An Echo"],
     ["That’s what it is: an echo."],
-    ["I’ll remember what I was, at some point.", ["It will come back to me."]]
+    ["I’ll remember what I was, at some point."],
+    ["It will come back to me."]
   ];
 
   function selectedBackground(e) {
@@ -29,23 +30,41 @@ export default function First() {
   }
 
   function advanceText(text) {
-    let newText = lineText.slice(0, text.length + 1);
+    let newText = textArray[textArrayIndex][0].slice(0, text.length + 1);
     setShownText(newText);
   }
 
   function printText(text) {
-    if (text.length < lineText.length) {
-      console.log(text);
-      let jitter = 20 + Math.random() * 200;
-      console.log(jitter);
-      setTimeout(() => {
-        advanceText(text);
-      }, jitter);
+    if (textArrayIndex < textArray.length) {
+      if (text.length < textArray[textArrayIndex][0].length) {
+        let jitter = 20 + Math.random() * 180;
+        setTimeout(() => {
+          advanceText(text);
+        }, jitter);
+      } else if (textArrayIndex < textArray.length) {
+        setTimeout(() => {
+          advanceLine();
+        }, 300);
+      }
+    }
+  }
+
+  function advanceLine() {
+    setShownText_2(shownText_1);
+    setShownText_1(shownText);
+    setShownText("");
+    if (textArrayIndex < textArray.length) {
+      setTextArrayIndex(textArrayIndex + 1);
     }
   }
 
   function displayChoices() {
-    if (shownText.length < lineText.length) {
+    console.log("textArrayIndex", textArrayIndex);
+    console.log("textArray.length", textArray.length);
+    if (
+      textArrayIndex !== textArray.length ||
+      shownText.length < textArray[textArrayIndex][0].length
+    ) {
       return { display: "none" };
     }
   }
@@ -57,7 +76,8 @@ export default function First() {
   return (
     <>
       <div className="text">
-        <p className="lastLine"> </p>
+        <p className="lastLine_2"> {shownText_2} </p>
+        <p className="lastLine_1"> {shownText_1} </p>
         <p className="currentLine"> {shownText}</p>
       </div>
       <div className="choices" style={displayChoices()}>
