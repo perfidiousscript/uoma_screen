@@ -5,7 +5,14 @@ export default function First() {
 
   const [shownText, setShownText] = useState("");
 
-  const lineText = "This is the line text okay?";
+  const lineText =
+    "An Echo \n That’s what it is: an echo. \n I’ll remember what I was, at some point. It will come back to me.";
+
+  const textArray = [
+    ["An Echo"],
+    ["That’s what it is: an echo."],
+    ["I’ll remember what I was, at some point.", ["It will come back to me."]]
+  ];
 
   function selectedBackground(e) {
     setChoice(e.target.dataset.choice);
