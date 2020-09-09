@@ -35,16 +35,16 @@ export default function First() {
   }
 
   function printText(text) {
-    if (textArrayIndex < textArray.length) {
+    if (textArrayIndex <= textArray.length) {
       if (text.length < textArray[textArrayIndex][0].length) {
         let jitter = 20 + Math.random() * 180;
         setTimeout(() => {
           advanceText(text);
         }, jitter);
-      } else if (textArrayIndex < textArray.length) {
+      } else if (textArrayIndex < textArray.length - 1) {
         setTimeout(() => {
           advanceLine();
-        }, 300);
+        }, 500);
       }
     }
   }
@@ -53,16 +53,17 @@ export default function First() {
     setShownText_2(shownText_1);
     setShownText_1(shownText);
     setShownText("");
-    if (textArrayIndex < textArray.length) {
-      setTextArrayIndex(textArrayIndex + 1);
+    if (textArrayIndex < textArray.length - 1) {
+      let new_length = textArrayIndex + 1;
+      setTextArrayIndex(new_length);
     }
   }
 
   function displayChoices() {
     console.log("textArrayIndex", textArrayIndex);
-    console.log("textArray.length", textArray.length);
+    console.log("textArray[textArrayIndex]", textArray[textArrayIndex]);
     if (
-      textArrayIndex !== textArray.length ||
+      textArrayIndex < textArray.length - 1 ||
       shownText.length < textArray[textArrayIndex][0].length
     ) {
       return { display: "none" };
