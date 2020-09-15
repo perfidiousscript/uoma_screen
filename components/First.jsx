@@ -15,6 +15,11 @@ export default function First() {
     ["It will come back to me."]
   ];
 
+  const choicesArray = [
+    { text: "Choice 1", id: "c1" },
+    { text: "Choice 2", id: "c2" }
+  ];
+
   function selectedBackground(e) {
     setChoice(e.target.dataset.choice);
     //e.target.style.border = "1px solid chartreuse";
@@ -60,14 +65,29 @@ export default function First() {
   }
 
   function displayChoices() {
-    console.log("textArrayIndex", textArrayIndex);
-    console.log("textArray[textArrayIndex]", textArray[textArrayIndex]);
     if (
       textArrayIndex < textArray.length - 1 ||
       shownText.length < textArray[textArrayIndex][0].length
     ) {
       return { display: "none" };
     }
+  }
+
+  function generateChoices() {
+    let compliedChoice = [];
+    choicesArray.map(function(choice) {
+      compiledChoice.push(
+        <span
+          onMouseEnter={selectedBackground}
+          onMouseLeave={unselectedBackground}
+          className="choice"
+          data-choice={choice.id}
+        >
+          {choice.text}
+        </span>
+      );
+    });
+    return compiledChoice;
   }
 
   useEffect(() => {
