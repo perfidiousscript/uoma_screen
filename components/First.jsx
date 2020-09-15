@@ -1,52 +1,49 @@
 import React, { useEffect, useState } from "react";
+import { story_json } from "../story_material/story.js";
 
 export default function First() {
-  const [selectedChoice, setChoice] = useState(null);
+  var [currentChoice, setChoice] = useState("0");
 
-  var [shownText, setShownText] = useState(" ");
-  var [shownText_1, setShownText_1] = useState(" ");
+  var [shownText, setShownText] = useState("");
+  var [shownText_1, setShownText_1] = useState("");
   var [shownText_2, setShownText_2] = useState("");
   var [textArrayIndex, setTextArrayIndex] = useState(0);
 
-  const textArray = [
-    ["An Echo"],
-    ["That’s what it is: an echo."],
-    ["I’ll remember what I was, at some point."],
-    ["It will come back to me."]
-  ];
-
-  const choicesArray = [
-    { text: "Choice 1", id: "c1" },
-    { text: "Choice 2", id: "c2" }
-  ];
-
   function selectedBackground(e) {
-    setChoice(e.target.dataset.choice);
-    //e.target.style.border = "1px solid chartreuse";
     e.target.style.background = "chartreuse";
     e.target.style.color = "black";
   }
 
   function unselectedBackground(e) {
-    setChoice(null);
-    // e.target.style.border = "1px solid black";
     e.target.style.background = "black";
     e.target.style.color = "chartreuse";
   }
 
+  function selectChoice(e) {
+    setChoice(e.target.dataset.choice);
+    advanceLine();
+    setTextArrayIndex(0);
+    printText("");
+  }
+
   function advanceText(text) {
-    let newText = textArray[textArrayIndex][0].slice(0, text.length + 1);
+    let newText = story_json[currentChoice].text[textArrayIndex][0].slice(
+      0,
+      text.length + 1
+    );
     setShownText(newText);
   }
 
   function printText(text) {
-    if (textArrayIndex <= textArray.length) {
-      if (text.length < textArray[textArrayIndex][0].length) {
+    if (textArrayIndex <= story_json[currentChoice].text.length) {
+      if (
+        text.length < story_json[currentChoice].text[textArrayIndex][0].length
+      ) {
         let jitter = 20 + Math.random() * 180;
         setTimeout(() => {
           advanceText(text);
         }, jitter);
-      } else if (textArrayIndex < textArray.length - 1) {
+      } else if (textArrayIndex < story_json[currentChoice].text.length - 1) {
         setTimeout(() => {
           advanceLine();
         }, 500);
@@ -58,28 +55,32 @@ export default function First() {
     setShownText_2(shownText_1);
     setShownText_1(shownText);
     setShownText("");
-    if (textArrayIndex < textArray.length - 1) {
+    if (textArrayIndex < story_json[currentChoice].text.length - 1) {
       let new_length = textArrayIndex + 1;
       setTextArrayIndex(new_length);
     }
   }
 
   function displayChoices() {
-    if (
-      textArrayIndex < textArray.length - 1 ||
-      shownText.length < textArray[textArrayIndex][0].length
-    ) {
-      return { display: "none" };
+    if (story_json[currentChoice].text[textArrayIndex]) {
+      if (
+        textArrayIndex < story_json[currentChoice].text.length - 1 ||
+        shownText.length <
+          story_json[currentChoice].text[textArrayIndex][0].length
+      ) {
+        return { display: "none" };
+      }
     }
   }
 
   function generateChoices() {
     let compiledChoice = [];
-    choicesArray.map(function(choice) {
+    story_json[currentChoice].choices.map(function(choice) {
       compiledChoice.push(
         <p
           onMouseEnter={selectedBackground}
           onMouseLeave={unselectedBackground}
+          onClick={selectChoice}
           className="choice"
           data-choice={choice.id}
         >
