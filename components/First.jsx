@@ -74,17 +74,17 @@ export default function First() {
   }
 
   function generateChoices() {
-    let compliedChoice = [];
+    let compiledChoice = [];
     choicesArray.map(function(choice) {
       compiledChoice.push(
-        <span
+        <p
           onMouseEnter={selectedBackground}
           onMouseLeave={unselectedBackground}
           className="choice"
           data-choice={choice.id}
         >
           {choice.text}
-        </span>
+        </p>
       );
     });
     return compiledChoice;
@@ -102,22 +102,7 @@ export default function First() {
         <p className="currentLine"> {shownText}</p>
       </div>
       <div className="choices" style={displayChoices()}>
-        <span
-          onMouseEnter={selectedBackground}
-          onMouseLeave={unselectedBackground}
-          className="choice"
-          data-choice="c1"
-        >
-          Choice 1
-        </span>
-        <span
-          onMouseEnter={selectedBackground}
-          onMouseLeave={unselectedBackground}
-          className="choice"
-          data-choice="c2"
-        >
-          Choice 2
-        </span>
+        {generateChoices()}
       </div>
     </>
   );
