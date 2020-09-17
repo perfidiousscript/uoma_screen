@@ -25,11 +25,16 @@ export const one_json = {
     ],
     ["grubbing up what I could, living off of the favors of others,"],
     [
-      "wandering dusty streets through sunlight and shadow, sleeping in grit wracked crevices."
+      "wandering trash strewn streets through sunlight and shadow, sleeping in grit wracked crevices."
     ],
     [
       "When the rains came I huddled under flapping skeins and when the skies were darked with the smoke of distant fires I sat on the riverside and breathed it in."
     ]
   ],
-  choices: [{ text: "It was the nadir of my life, but I was found.", id: "2" }]
+  choices: [
+    { text: "It was the nadir of my life, but I was found.", id: "2a" },
+    { text: "It was the nadir of my life, but I was found.", id: "2b" },
+    { text: "It was the nadir of my life, but I was found.", id: "2c" },
+    { text: "It was the nadir of my life, but I was found.", id: "2d" }
+  ]
 };
