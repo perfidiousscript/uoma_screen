@@ -26,7 +26,6 @@ a {
 
 .text {
   padding: 0 0 0 1%;
-  display: inline-block;
 }
 
 .choice {
@@ -36,8 +35,17 @@ a {
 
 .textLine {
   min-height: 16px;
-  border: 1px solid chartreuse;
+  /* border: 1px solid chartreuse; */
+}
+
+.lastLine {
+  padding: 0 0 0 0.9%;
+}
+
+.currentLine {
+  padding: 0 0 0 1%;
 }
 
 .displayCarat {
+  float: left;
 }
