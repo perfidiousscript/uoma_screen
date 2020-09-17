@@ -7,6 +7,8 @@ export default function First() {
   var [shownText, setShownText] = useState("");
   var [shownText_1, setShownText_1] = useState("");
   var [shownText_2, setShownText_2] = useState("");
+  var [shownText_3, setShownText_3] = useState("");
+  var [shownText_4, setShownText_4] = useState("");
   var [textArrayIndex, setTextArrayIndex] = useState(0);
 
   function selectedBackground(e) {
@@ -52,6 +54,8 @@ export default function First() {
   }
 
   function advanceLine() {
+    setShownText_4(shownText_3);
+    setShownText_3(shownText_2);
     setShownText_2(shownText_1);
     setShownText_1(shownText);
     setShownText("");
@@ -98,6 +102,8 @@ export default function First() {
   return (
     <>
       <div className="text">
+        <p className="textLine lastLine"> {shownText_4} </p>
+        <p className="textLine lastLine"> {shownText_3} </p>
         <p className="textLine lastLine"> {shownText_2} </p>
         <p className="textLine lastLine"> {shownText_1} </p>
         <span className="displayCarat">> </span>
