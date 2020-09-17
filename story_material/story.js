@@ -1,3 +1,5 @@
+import { two_a } from "./2/2a.js";
+import { two_b } from "./2/2b.js";
 export const story_json = {
   "0": {
     text: [
@@ -11,9 +13,10 @@ export const story_json = {
   "1": {
     text: [["This is the new choice"], ["It works really well"]],
     choices: [
-      { text: "These are some new choices", id: "0" },
-      { text: "They work well", id: "0" },
-      { text: "And look good", id: "0" }
+      { text: "This goes to 2a", id: "2a" },
+      { text: "This goes to 2b", id: "2b" }
     ]
-  }
+  },
+  "2a": two_a,
+  "2b": two_b
 };
