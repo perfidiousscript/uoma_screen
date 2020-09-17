@@ -26,6 +26,7 @@ a {
 
 .text {
   padding: 0 0 0 1%;
+  display: inline-block;
 }
 
 .choice {
@@ -33,6 +34,10 @@ a {
   border: 1px solid black;
 }
 
-.text_line {
+.textLine {
   min-height: 16px;
+  border: 1px solid chartreuse;
+}
+
+.displayCarat {
 }

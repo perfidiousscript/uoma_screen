@@ -97,10 +97,11 @@ export default function First() {
 
   return (
     <>
+      <span className="displayCarat">></span>
       <div className="text">
-        <p className="text_line lastLine_2"> {shownText_2} </p>
-        <p className="text_line lastLine_1"> {shownText_1} </p>
-        <p className="text_line currentLine"> {shownText} </p>
+        <p className="textLine lastLine2"> {shownText_2} </p>
+        <p className="textLine lastLine1"> {shownText_1} </p>
+        <p className="textLine currentLine"> {shownText} </p>
       </div>
       <div className="choices" style={displayChoices()}>
         {generateChoices()}
