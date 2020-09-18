@@ -15,7 +15,7 @@ export const one_json = {
     ["The life of a sculptor suited me."],
     ["Alone in my studio day after day instilling matter with life,"],
     [
-      "turning soil into something that seemed like it might get up a breathe and think and move."
+      "turning soil into something that might rise up and breathe and think and move."
     ],
     ["The same work God did."],
     ["And I loved it."],
