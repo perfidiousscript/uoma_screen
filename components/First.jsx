@@ -3,7 +3,10 @@ import { story_json } from "../story_material/story.js";
 
 export default function First() {
   var [currentChoice, setChoice] = useState("0");
+  var [readThroughNumber, setReadThroughNumber] = useState(0);
 
+  // var [anEffect, setAnEffect] = useState(false);
+  // var [anotherEffect, setAnotherEffect] = useState(false);
   var [shownText, setShownText] = useState("");
   var [shownText_1, setShownText_1] = useState("");
   var [shownText_2, setShownText_2] = useState("");
@@ -21,8 +24,15 @@ export default function First() {
     e.target.style.color = "chartreuse";
   }
 
+  function enactEffect(effectType, effectChange) {
+    // if (effectType === "a") {
+    //   setAnEffect(effectChange);
+    // }
+  }
+
   function selectChoice(e) {
     setChoice(e.target.dataset.choice);
+    enactEffect(e.target.dataset.effecttype, e.target.dataset.effectchange);
     advanceLine();
     setTextArrayIndex(0);
     printText("");
@@ -41,7 +51,7 @@ export default function First() {
       if (
         text.length < story_json[currentChoice].text[textArrayIndex][0].length
       ) {
-        let jitter = 20 + Math.random() * 180;
+        let jitter = 20 + Math.random() * 100;
         setTimeout(() => {
           advanceText(text);
         }, jitter);
@@ -78,8 +88,15 @@ export default function First() {
   }
 
   function generateChoices() {
-    let compiledChoice = [];
-    story_json[currentChoice].choices.map(function(choice) {
+    var compiledChoice = [];
+    var choicesArray = [];
+    if (currentChoice === "1") {
+      choicesArray.push(story_json[currentChoice].choices[readThroughNumber]);
+    } else {
+      choicesArray = story_json[currentChoice].choices;
+    }
+
+    choicesArray.map(function(choice) {
       compiledChoice.push(
         <p
           onMouseEnter={selectedBackground}
@@ -87,6 +104,8 @@ export default function First() {
           onClick={selectChoice}
           className="choice"
           data-choice={choice.id}
+          data-effecttype={choice.effectType}
+          data-effectchange={choice.effectChange}
         >
           {choice.text}
         </p>

@@ -32,7 +32,10 @@ export const one_json = {
     ]
   ],
   choices: [
-    { text: "It was the nadir of my life, but I was found.", id: "2a" },
+    {
+      text: "It was the nadir of my life, but I was found.",
+      id: "2a"
+    },
     { text: "It was the nadir of my life, but I was found.", id: "2b" },
     { text: "It was the nadir of my life, but I was found.", id: "2c" },
     { text: "It was the nadir of my life, but I was found.", id: "2d" }

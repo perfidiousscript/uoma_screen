@@ -8,5 +8,10 @@ export const zero_json = {
     ["I came to Uoma for a purpose."],
     ["I came here because I was called."]
   ],
-  choices: [{ text: "I came here because...", id: "1" }]
+  choices: [
+    {
+      text: "I came here because...",
+      id: "1"
+    }
+  ]
 };
