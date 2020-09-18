@@ -102,6 +102,7 @@ export default function First() {
           onMouseEnter={selectedBackground}
           onMouseLeave={unselectedBackground}
           onClick={selectChoice}
+          key={choice.id}
           className="choice"
           data-choice={choice.id}
           data-effecttype={choice.effectType}
