@@ -1,16 +1,26 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import { StaticRouter as Router, Switch, Route, Link } from "react-router-dom";
 import First from "../components/First.jsx";
 
 export default function Home() {
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/">
-          <First />
-        </Route>
-      </Switch>
-    </Router>
+    <pre>
+      {`{__     {__    {____     {__       {__      {_
+{__     {__  {__    {__  {_ {__   {___     {_ __     
+{__     {__{__        {__{__ {__ { {__    {_  {__
+{__     {__{__        {__{__  {__  {__   {__   {__
+{__     {__{__        {__{__   {_  {__  {______ {__
+{__     {__  {__     {__ {__       {__ {__       {__
+  {_____       {____     {__       {__{__         {__
+
+{___     {__{________{___ {______
+{_ {__   {__{__           {__
+{__ {__  {__{__           {__
+{__  {__ {__{______       {__
+{__   {_ {__{__           {__
+{__    {_ __{__           {__
+{__      {__{________     {__
+                                    `}
+    </pre>
   );
 }
