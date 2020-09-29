@@ -384,13 +384,12 @@ d: From the very beginning of my time at Uoma the days lost their edges and blen
 	[c1]: I told Donas that I thought it was possible.\
 	[c2]: I told Donas that I did not think it was possible.	\
 \
-\
 \pard\pardeftab720\partightenfactor0
 
 \f1\b \cf2 \ul 11
 \f0\b0 \ulnone  (Answering Sep's Question)\
 \
-11a I said I had come to believe that suffering was its own sort of work, that whenever we were suffering we were moving forward with a kind of work whether or not we were aware of it.\
+11a(yes) I said I had come to believe that suffering was its own sort of work, that whenever we were suffering we were moving forward with a kind of work whether or not we were aware of it.\
 	Sep nodded, "I've always felt the same, that suffering is not only necessary to undertake real work, but is in itself a form of work."\
 	Sep took a drink of his whisky then leaned forward.\
 	"Tell me," Sep said, "if we could position you into a place where you could work at a level unlike any you have experienced, would you take it?"\
@@ -400,7 +399,7 @@ d: From the very beginning of my time at Uoma the days lost their edges and blen
 	12b "No.  While my work was important to experience greater suffering would not be worth it.\
 	\
 \
-11b I said that when I was working I always experienced a sort of joy that suffering had always been a block to my work.\
+11a(no) I said that when I was working I always experienced a sort of joy that suffering had always been a block to my work.\
 	Sep nodded, "I've always felt the same, that suffering - in whatever form it might take - is the greatest source of interruption of one's work. Were we to live in a world free of suffering I believe we would be able to achieve goals that would be unthinkable to us today.\
 	Though Sep had agreed with me, something about his statement made me uneasy.\
 	"Tell me," Sep said, "if we could position you into a place where you could work at a level you never have before, would you take it?"\
@@ -409,6 +408,17 @@ d: From the very beginning of my time at Uoma the days lost their edges and blen
 \pard\pardeftab720\partightenfactor0
 \cf2 	12a "Yes. Suffering has always kept me from my greatest work and if he could remove that suffering and allow me to work fully I would take it."\
 	12b "No. Though suffering has kept me from my work in the past it would be impossible to remove all suffering from my life. Anyways, some suffering is always necessary."\
+\
+11c\
+\
+11d Sep nodded. "Prophecy has been a part of the human experience for so long, yet it is so rare. One might never think it exists until one experiences it themselves. In many traditions speaking with a living god rends the spirit from the prophet's body. I have wondered at times if the one living prophets, the ones capable of bringing a message back to us, are those who have spoken to God long deceased, whose power has shrunk to that of a rotting corpse."\
+	Though I put little stock in the, Sep words shook me.\
+\
+	"Tell me," Sep said, "if I could position you into a place where you could hear the words of something that might have once been called a god, what would you say?"\
+	I considered this for a moment and said,\
+\
+	12a "Yes."\
+	12b "No.  While my work was important to experience greater suffering would not be worth it.\
 \
 \
 \pard\pardeftab720\partightenfactor0
@@ -448,27 +458,27 @@ d: From the very beginning of my time at Uoma the days lost their edges and blen
 13a/b(sculptor) \
 	I asked Sep what he had in mind.\
 	"I would like you to make a sculpture that encapsulates all of Uoma."\
-	I had to laugh, "A miniature of the whole place? That would take years, decades probably."\
+	I had to laugh, "A miniature of the whole place? That would take months, years probably."\
 	Sep, looking grave, shook his head, "Not in the literal sense. More like- More like a sculpture of the soul of the place. In impression of Uoma as seen from the inside."\
 	This seemed more reasonable, though I was a bit more confused.\
 	"I believe if you stay here with us long enough the project will become more clear. All I ask is that you observe this place and work as you will. Watch and listen and come and speak with me once a week. That is all I ask."\
 	It was an unusual project. On the one hand I would be fed and housed and allowed to work on whatever I wanted, for as long as I wanted.\
 	Sep handed me a manila folder.\
-	"These are some notes I have been working on or years, in my own failed attempts, that you can refer to."\
+	"These are some notes I have been working on for some time, my own failed attempts, that you can refer to."\
 	"Do you think you can do it?" Sep asked.\
 	\
-	14a I told Sep that, in spite of my confusion, I thought that I thought I could do it.\
-	14b I admitted to Sep that I was utterly perplexed, that I wasn't sure that anyone could finish a task like this.\
+	14 I told Sep that, in spite of my confusion, I thought that I thought I could do it.\
+	14 I admitted to Sep that I was utterly perplexed, that I wasn't sure that anyone could finish a task like this.\
 \
 13a/b(programmer) \
 	I asked Sep what he had in mind.\
-	"I would like you to make a program that connects all of Uoma."\
-	I had to laugh, "A network for whole place? That would take months, years probably."\
-	Sep, looking grave, shook his head, "Not in the literal sense. More like- More like program that represents the soul of the place. An impression of Uoma as seen from the inside."\
-	This seemed more reasonable, though I was a bit more confused.\
+	"I would like you to make a program that recreates all of Uoma."\
+	I had to laugh, "A simulation of the whole place? That would take months, years probably."\
+	Sep, looking grave, shook his head, "Not in the literal sense. More like- More like a program that represents the soul of the place. An impression of Uoma as seen from the inside."\
+	I was a at a total loss as to what Sep meant.\
 	"I believe if you stay here with us long enough the project will become more clear. All I ask is that you observe this place and work as you will. Watch and listen and come and speak with me once a week. That is all I ask."\
 	Sep handed me a manila folder.\
-	"These are some notes I have been working on or years, in my own failed attempts, that you can refer to."\
+	"These are some notes I have been working on for sometime. My own failed attempts, that you can refer to."\
 	It was an unusual project. On the one hand I would be fed and housed and allowed to work on whatever I wanted, for as long as I wanted.\
 	"Do you think you can do it?" Sep asked.\
 \
@@ -523,9 +533,18 @@ I listened. I believed him. \
 The world does not always get better, but the world does become more true, the truth reveals itself to us.\
 \
 \
-game state:\
+\pard\pardeftab720\partightenfactor0
+
+\f1\b \cf2 Game State Hash:
+\f0\b0 \
 \{\
- p: true/false, (\'93programmer/sculptor\'94)\
+ programmer:    true/false, (\'93programmer/sculptor\'94),\
+ confidence:    true/false, (Part 14: chooses Yes or No)\
+ suffering:     true/false, (Part 10a: chooses Suffering or No)\
+\pard\pardeftab720\partightenfactor0
+\cf2  channeling:    true/false, (Part 10b: chooses Channeling or No)\
+ eternalReturn: true/false, (Part 10c: chooses Meeting or No) \
+ prophecy:      true/false, (Part 10d: chooses 'Talk to god' or 'No')\
 \}\
 \
 localstorage: \
@@ -618,15 +637,19 @@ Sculptor\
 
 \f1\b \cf2 \ul Structure
 \f0\b0 \ulnone \
-	There are four 'iterations', tellings of the story where Sep/Donas and Uoma change slightly. Within each iteration there are multiple choices, perhaps multiple endings? Two or three endings per iteration, with the next iteration beginning only when the 'correct' choice is made? Or perhaps the next iteration always occurs, regardless of the ending, though there may be a secret or specific ending that only occurs if specific combinations are chosen? Or perhaps there are various endings \
+	There are four 'iterations', tellings of the story where Sep/Donas and Uoma change slightly. Within each iteration there are multiple choices, perhaps multiple endings? Two or three endings per iteration, with the next iteration beginning only when the 'correct' choice is made? Or perhaps the next iteration always occurs, regardless of the ending, though there may be a secret or specific ending that only occurs if specific combinations are chosen? Or perhaps there are various endings.\
+	The knee jerk reaction is to position the more 'bold' choices as presenting the more interesting or longer endings. But I want to make this so that the user fashions the Narrator's reality, the choices that the User/Narrator picks result in equally interesting paths, paths which are shaped by their attitudes, so that saying 'No' to Sep's question does not necessarily result in a worse or more boring outcome, but causes the narrator to experience different things. This could be accomplished with an insanity integer, with each choice of yes the insanity rises (+1 for a 'yes', +0 for a 'no') which will result in two endings for the first iterations, three endings for the second, etc. Alternately there could be two endings for each iteration based off of the local choice, and then two, three or four endings for the final iteration based off of the insanity, possibly combined with courage (or whatever\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
 \
+\pard\pardeftab720\partightenfactor0
 
-\f1\b \ul Endings
+\f1\b \cf2 \ul Endings
 \f0\b0 \ulnone \
 There will be at least one measure that is tracked that will determine each ending. Ideally no ending will be reached more than once, though a full play through will reveal every ending(?). Possibly, the reader will have to repeat iterations until the correct ending is chosen, but used endings will prune each time? \
 	First choice is Programmer/Sculptor. Perhaps this will change the flavor of each iteration, and change the ending(?)\
 	Second choice occurs at Part 10, where Sep asks the narrator one of three questions and the narrator can either say that they agree, disagree or are not sure. What this is really showing is what the narrator believes, whether they are willing to go along with Sep's ideas, whether they tend to be mystical, grounded or ambivalent/apathetic/unsure. Perhaps the user's choice dictate the ending in that, how mystical they are determines how mystical the ending is, that is if they choose the 'mystical' choice then they see \
-\
+	\
 \pard\pardeftab720\partightenfactor0
 \cf2 \ul Iteration Endings\
 \pard\pardeftab720\partightenfactor0
