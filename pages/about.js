@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 
 export default function Home() {
   function selectedBackground(e) {
@@ -13,15 +14,16 @@ export default function Home() {
   return (
     <>
       <div className="choices">
-        <span
-          onMouseEnter={selectedBackground}
-          onMouseLeave={unselectedBackground}
-          //onClick={}
-          key="start"
-          className="choice"
-        >
-          Back
-        </span>
+        <Link href="/">
+          <span
+            onMouseEnter={selectedBackground}
+            onMouseLeave={unselectedBackground}
+            key="start"
+            className="choice"
+          >
+            Back
+          </span>
+        </Link>
       </div>
       <div className="text">
         <p>Uoma is a work of interactive fiction.</p>

@@ -1,5 +1,6 @@
 import Head from "next/head";
 import React from "react";
+import Link from "next/link";
 import packageJson from "../package.json";
 import styles from "../styles/Home.module.css";
 
@@ -30,24 +31,27 @@ export default function Home() {
         <span className="versionNumber">patch {packageJson.version}</span>
         <p className="bottomBar">{`############################################################################################`}</p>
         <div className="choices">
-          <span
-            onMouseEnter={selectedBackground}
-            onMouseLeave={unselectedBackground}
-            //onClick={}
-            key="start"
-            className="choice"
-          >
-            Start
-          </span>
-          <span
-            onMouseEnter={selectedBackground}
-            onMouseLeave={unselectedBackground}
-            //onClick={}
-            key="about"
-            className="choice"
-          >
-            About
-          </span>
+          <Link href="/story">
+            <span
+              onMouseEnter={selectedBackground}
+              onMouseLeave={unselectedBackground}
+              key="start"
+              className="choice"
+            >
+              Start
+            </span>
+          </Link>
+          <Link href="/about">
+            <span
+              onMouseEnter={selectedBackground}
+              onMouseLeave={unselectedBackground}
+              //onClick={}
+              key="about"
+              className="choice"
+            >
+              About
+            </span>
+          </Link>
         </div>
       </div>
     </>
