@@ -27,6 +27,15 @@ export default function Home() {
         <p>Story, concept and code: Samuel M. Moss </p>
         <p>Design and images: Mike Corrao</p>
       </div>
+      <div className="text">
+        <p>Written with Next.js</p>
+        <p>
+          Logos generated with Patrick Gillespie's{" "}
+          <a href="http://patorjk.com/software/taag/">
+            Text ASCII Art Generator
+          </a>
+        </p>
+      </div>
     </>
   );
 }
