@@ -16,26 +16,6 @@ export default function Home() {
 
   return (
     <>
-      <div className="choices">
-        <span
-          onMouseEnter={selectedBackground}
-          onMouseLeave={unselectedBackground}
-          //onClick={}
-          key="start"
-          className="choice"
-        >
-          Start
-        </span>
-        <span
-          onMouseEnter={selectedBackground}
-          onMouseLeave={unselectedBackground}
-          //onClick={}
-          key="about"
-          className="choice"
-        >
-          About
-        </span>
-      </div>
       <div className="landingArt">
         <pre className="uomaAscii">
           {`
@@ -47,8 +27,28 @@ export default function Home() {
  \\___/ \\___/\\_|  |_/\\_| |_/
 `}
         </pre>
-        <span classname="versionNumber">patch {packageJson.version}</span>
+        <span className="versionNumber">patch {packageJson.version}</span>
         <p className="bottomBar">{`############################################################################################`}</p>
+        <div className="choices">
+          <span
+            onMouseEnter={selectedBackground}
+            onMouseLeave={unselectedBackground}
+            //onClick={}
+            key="start"
+            className="choice"
+          >
+            Start
+          </span>
+          <span
+            onMouseEnter={selectedBackground}
+            onMouseLeave={unselectedBackground}
+            //onClick={}
+            key="about"
+            className="choice"
+          >
+            About
+          </span>
+        </div>
       </div>
     </>
   );
