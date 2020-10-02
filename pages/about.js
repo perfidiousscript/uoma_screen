@@ -13,6 +13,41 @@ export default function Home() {
   }
   return (
     <>
+      <div className="text">
+        <p>Uoma is a work of interactive fiction.</p>
+        <p>
+          The reader's choices affect the path and outcome of the story. The
+          work considers ideas of agency, the boundaries of art and technology,
+          and eternal return. If you believ the story has ended, it has most
+          likely just begun.
+        </p>
+        <br />
+        <p>
+          Story, concept and code:
+          <a href="www.perfidiousscript.blogspot.com">
+            <span
+              onMouseEnter={selectedBackground}
+              onMouseLeave={unselectedBackground}
+            >
+              Samuel M. Moss
+            </span>
+          </a>{" "}
+        </p>
+        <p>Design and images: Mike Corrao</p>
+        <br />
+        <p>Generated using Next.js</p>
+        <p>
+          Logos generated with Patrick Gillespie's{" "}
+          <a href="http://patorjk.com/software/taag/">
+            <span
+              onMouseEnter={selectedBackground}
+              onMouseLeave={unselectedBackground}
+            >
+              Text ASCII Art Generator
+            </span>
+          </a>
+        </p>
+      </div>
       <div className="choices">
         <Link href="/">
           <span
@@ -24,26 +59,6 @@ export default function Home() {
             Back
           </span>
         </Link>
-      </div>
-      <div className="text">
-        <p>Uoma is a work of interactive fiction.</p>
-        <p>
-          The reader's choices affect the path and outcome of the story. The
-          work considers ideas of agency, the boundaries of art and technology,
-          and eternal return. If you believ the story has ended, it has most
-          likely just begun.
-        </p>
-        <br />
-        <p>Story, concept and code: Samuel M. Moss </p>
-        <p>Design and images: Mike Corrao</p>
-        <br />
-        <p>Written with Next.js</p>
-        <p>
-          Logos generated with Patrick Gillespie's{" "}
-          <a href="http://patorjk.com/software/taag/">
-            Text ASCII Art Generator
-          </a>
-        </p>
       </div>
     </>
   );
