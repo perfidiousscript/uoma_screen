@@ -6,6 +6,7 @@ import { story_json } from "../story_material/story.js";
 export default function Home() {
   var [currentPart, setPart] = useState("0");
   var [readThroughNumber, setReadThroughNumber] = useState(0);
+  var [currentPosition, setCurrentPosition] = useState(null);
 
   // var [anEffect, setAnEffect] = useState(false);
   // var [anotherEffect, setAnotherEffect] = useState(false);
@@ -37,6 +38,11 @@ export default function Home() {
     enactEffect(e.target.dataset.effecttype, e.target.dataset.effectchange);
     advanceLine();
     setTextArrayIndex(0);
+    if (currentPart === "wander") {
+      setCurrentPosition(story_json[currentPart][readThroughNumber][location]);
+    } else {
+      setCurrentPosition(story_json[currentPart][readThroughNumber]);
+    }
     printText("");
   }
 
@@ -45,6 +51,14 @@ export default function Home() {
       textArrayIndex
     ][0].slice(0, text.length + 1);
     setShownText(newText);
+  }
+
+  function storyPosition() {
+    if (currentPart === "wander") {
+      story_json[currentPart][readThroughNumber][location];
+    } else {
+      story_json[currentPart][readThroughNumber];
+    }
   }
 
   function printText(text) {
