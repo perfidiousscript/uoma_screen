@@ -4,7 +4,7 @@ import styles from "../styles/Home.module.css";
 import { story_json } from "../story_material/story.js";
 
 export default function Home() {
-  var [currentChoice, setChoice] = useState("0");
+  var [currentPart, setPart] = useState("0");
   var [readThroughNumber, setReadThroughNumber] = useState(0);
 
   // var [anEffect, setAnEffect] = useState(false);
@@ -33,7 +33,7 @@ export default function Home() {
   }
 
   function selectChoice(e) {
-    setChoice(e.target.dataset.choice);
+    setPart(e.target.dataset.choice);
     enactEffect(e.target.dataset.effecttype, e.target.dataset.effectchange);
     advanceLine();
     setTextArrayIndex(0);
@@ -41,23 +41,29 @@ export default function Home() {
   }
 
   function advanceText(text) {
-    let newText = story_json[currentChoice].text[textArrayIndex][0].slice(
-      0,
-      text.length + 1
-    );
+    let newText = story_json[currentPart][readThroughNumber].text[
+      textArrayIndex
+    ][0].slice(0, text.length + 1);
     setShownText(newText);
   }
 
   function printText(text) {
-    if (textArrayIndex <= story_json[currentChoice].text.length) {
+    if (
+      textArrayIndex <= story_json[currentPart][readThroughNumber].text.length
+    ) {
       if (
-        text.length < story_json[currentChoice].text[textArrayIndex][0].length
+        text.length <
+        story_json[currentPart][readThroughNumber].text[textArrayIndex][0]
+          .length
       ) {
         let jitter = 20 + Math.random() * 100;
         setTimeout(() => {
           advanceText(text);
         }, jitter);
-      } else if (textArrayIndex < story_json[currentChoice].text.length - 1) {
+      } else if (
+        textArrayIndex <
+        story_json[currentPart][readThroughNumber].text.length - 1
+      ) {
         setTimeout(() => {
           advanceLine();
         }, 500);
@@ -71,18 +77,23 @@ export default function Home() {
     setShownText_2(shownText_1);
     setShownText_1(shownText);
     setShownText("");
-    if (textArrayIndex < story_json[currentChoice].text.length - 1) {
+    if (
+      textArrayIndex <
+      story_json[currentPart][readThroughNumber].text.length - 1
+    ) {
       let new_length = textArrayIndex + 1;
       setTextArrayIndex(new_length);
     }
   }
 
   function displayChoices() {
-    if (story_json[currentChoice].text[textArrayIndex]) {
+    if (story_json[currentPart][readThroughNumber].text[textArrayIndex]) {
       if (
-        textArrayIndex < story_json[currentChoice].text.length - 1 ||
+        textArrayIndex <
+          story_json[currentPart][readThroughNumber].text.length - 1 ||
         shownText.length <
-          story_json[currentChoice].text[textArrayIndex][0].length
+          story_json[currentPart][readThroughNumber].text[textArrayIndex][0]
+            .length
       ) {
         return { display: "none" };
       }
@@ -92,10 +103,12 @@ export default function Home() {
   function generateChoices() {
     var compiledChoice = [];
     var choicesArray = [];
-    if (currentChoice === "1") {
-      choicesArray.push(story_json[currentChoice].choices[readThroughNumber]);
+    if (currentPart === "1") {
+      choicesArray.push(
+        story_json[currentPart][readThroughNumber].choices[readThroughNumber]
+      );
     } else {
-      choicesArray = story_json[currentChoice].choices;
+      choicesArray = story_json[currentPart][readThroughNumber].choices;
     }
 
     choicesArray.map(function(choice) {
