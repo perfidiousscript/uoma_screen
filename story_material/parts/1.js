@@ -26,7 +26,7 @@ export const one_json = {
       ],
       ["grubbing up what I could, living off of the favors of others,"],
       [
-        "wandering trash strewn streets through sunlight and shadow, sleeping in grit wracked crevices."
+        "wandering trash strewn alleyways through sunlight and shadow, sleeping in grit wracked crevices."
       ],
       [
         "When the rains came I huddled under flapping skeins and when the skies were darked with the smoke of distant fires I sat on the riverside and breathed it in."
