@@ -7,6 +7,8 @@ export default function Home() {
   var [currentPart, setPart] = useState("0");
   var [readThroughNumber, setReadThroughNumber] = useState(0);
   var [currentPosition, setCurrentPosition] = useState(null);
+  var [courage, setCourage] = useState(0);
+  var [insanity, setInsanity] = useState(0);
 
   // var [anEffect, setAnEffect] = useState(false);
   // var [anotherEffect, setAnotherEffect] = useState(false);
@@ -115,7 +117,7 @@ export default function Home() {
   }
 
   function generateChoices() {
-    var compiledChoice = [];
+    var compiledChoices = [];
     var choicesArray = [];
     if (currentPart === "1") {
       choicesArray.push(
@@ -125,23 +127,50 @@ export default function Home() {
       choicesArray = story_json[currentPart][readThroughNumber].choices;
     }
 
+    function checkActive(activeHash) {
+      console.log(activeHash);
+      if (activeHash) {
+        if (activeHash.variable === "insanity") {
+          if (activeHash.type === "gt") {
+            insanity >= activeHash.value;
+          }
+        }
+      } else {
+        return true;
+      }
+    }
+
     choicesArray.map(function(choice) {
-      compiledChoice.push(
-        <p
-          onMouseEnter={selectedBackground}
-          onMouseLeave={unselectedBackground}
-          onClick={selectChoice}
-          key={choice.id}
-          className="choice"
-          data-choice={choice.id}
-          data-effecttype={choice.effectType}
-          data-effectchange={choice.effectChange}
-        >
-          {choice.text}
-        </p>
-      );
+      if (checkActive(choice.active)) {
+        compiledChoices.push(
+          <p
+            onMouseEnter={selectedBackground}
+            onMouseLeave={unselectedBackground}
+            onClick={selectChoice}
+            key={choice.id}
+            className="activeChoice"
+            data-choice={choice.id}
+            data-effecttype={choice.effectType}
+            data-effectchange={choice.effectChange}
+          >
+            {choice.text}
+          </p>
+        );
+      } else {
+        compiledChoices.push(
+          <p
+            key={choice.id}
+            className="inActiveChoice"
+            data-choice={choice.id}
+            data-effecttype={choice.effectType}
+            data-effectchange={choice.effectChange}
+          >
+            {choice.text}
+          </p>
+        );
+      }
     });
-    return compiledChoice;
+    return compiledChoices;
   }
 
   useEffect(() => {
