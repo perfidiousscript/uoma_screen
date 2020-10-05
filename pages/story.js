@@ -7,6 +7,7 @@ export default function Home() {
   var [currentPart, setPart] = useState("0");
   var [readThroughNumber, setReadThroughNumber] = useState(0);
   var [currentPosition, setCurrentPosition] = useState(null);
+  var [occupation, setOccupation] = useState(null);
   var [courage, setCourage] = useState(0);
   var [insanity, setInsanity] = useState(0);
 
