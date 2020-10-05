@@ -36,18 +36,27 @@ export default function Home() {
               onMouseEnter={selectedBackground}
               onMouseLeave={unselectedBackground}
               key="start"
-              className="choice"
+              className="activeChoice"
             >
               Start
+            </span>
+          </Link>
+          <Link href="/tips">
+            <span
+              onMouseEnter={selectedBackground}
+              onMouseLeave={unselectedBackground}
+              key="start"
+              className="activeChoice"
+            >
+              Tips
             </span>
           </Link>
           <Link href="/about">
             <span
               onMouseEnter={selectedBackground}
               onMouseLeave={unselectedBackground}
-              //onClick={}
               key="about"
-              className="choice"
+              className="activeChoice"
             >
               About
             </span>
