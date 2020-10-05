@@ -2,10 +2,10 @@ export const one_json = {
   "0": {
     text: [
       [
-        "I had worked for years on the project, molding the brains of these hot metal bodies teaching them to fly to the outer reaches of our atmosphere"
+        "I had worked for years on the project, molding the brains of these burning, metal bodies; teaching them to fly to the outer reaches of our atmosphere"
       ],
       [
-        "and return to within a meter of where they were sent to cause whatever was there to become little more than dust and ash and gas."
+        "so that they could return again, to somewhere far distant, so that they might cause whatever stood there to become little more than dust and ash and gas."
       ],
       ["I poured my heart and soul into that work..."],
       ["Then was told to leave for no reason I could discern."],
@@ -13,7 +13,7 @@ export const one_json = {
       [
         "I left those years behind and took up plinth and awl and clay and did my own work, fashioning life from lifeless stuff."
       ],
-      ["The work of a sculptor suited me."],
+      ["The work of a sculptor suited me:"],
       ["Alone in my studio day after day instilling matter with meaning,"],
       [
         "turning soil into something that might rise up and breathe and think and move."
