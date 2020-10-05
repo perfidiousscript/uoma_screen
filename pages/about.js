@@ -14,14 +14,6 @@ export default function Home() {
   return (
     <>
       <div className="text">
-        <p>Uoma is a work of interactive fiction.</p>
-        <p>
-          The reader's choices affect the path and outcome of the story. The
-          work considers ideas of agency, the boundaries of art and technology,
-          and eternal return. If you believ the story has ended, it has most
-          likely just begun.
-        </p>
-        <br />
         <p>
           Story, concept and code:
           <a href="www.perfidiousscript.blogspot.com">
@@ -54,7 +46,7 @@ export default function Home() {
             onMouseEnter={selectedBackground}
             onMouseLeave={unselectedBackground}
             key="start"
-            className="choice"
+            className="activeChoice"
           >
             Back
           </span>
