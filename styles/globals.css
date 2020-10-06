@@ -54,3 +54,11 @@ a {
 .displayCarat {
   float: left;
 }
+
+.landingArt {
+  max-width: 60%;
+}
+
+.versionNumber {
+  float: right;
+}
