@@ -2,10 +2,11 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import styles from "../styles/Home.module.css";
 import { story_json } from "../story_material/story.js";
+import cookieCutter from "cookie-cutter";
 
 export default function Home() {
   var [currentPart, setPart] = useState("0");
-  var [readThroughNumber, setReadThroughNumber] = useState(0);
+  var [readThroughNumber, setReadThroughNumber] = useState(null);
   var [currentPosition, setCurrentPosition] = useState(null);
   var [occupation, setOccupation] = useState(null);
   var [courage, setCourage] = useState(0);
@@ -129,7 +130,6 @@ export default function Home() {
     }
 
     function checkActive(activeHash) {
-      console.log(activeHash);
       if (activeHash) {
         if (activeHash.variable === "insanity") {
           if (activeHash.type === "gt") {
@@ -174,9 +174,23 @@ export default function Home() {
     return compiledChoices;
   }
 
+  function checkCookies() {
+    console.log("cookie:", cookieCutter.get("readThroughNumber"));
+    if (cookieCutter.get("readThroughNumber")) {
+      setReadThroughNumber(cookieCutter.get("readThroughNumber"));
+    } else {
+      setReadThroughNumber(0);
+      cookieCutter.set("readThroughNumber", 0);
+    }
+  }
+
   useEffect(() => {
-    printText(shownText);
-  }, [shownText]);
+    checkCookies();
+  }, [readThroughNumber]);
+
+  useEffect(() => {
+    readThroughNumber && printText(shownText);
+  }, [readThroughNumber, shownText]);
 
   return (
     <>
@@ -188,8 +202,8 @@ export default function Home() {
         <span className="displayCarat">> </span>
         <p className="textLine currentLine"> {shownText} </p>
       </div>
-      <div className="choices" style={displayChoices()}>
-        {generateChoices()}
+      <div className="choices" style={readThroughNumber && displayChoices()}>
+        {readThroughNumber && generateChoices()}
       </div>
     </>
   );
