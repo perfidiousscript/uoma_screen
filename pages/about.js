@@ -16,7 +16,7 @@ export default function Home() {
       <div className="text">
         <p>
           Story, concept and code:
-          <a href="www.perfidiousscript.blogspot.com">
+          <a href="www.perfidiousscript.blogspot.com" rel="nofollow">
             <span
               onMouseEnter={selectedBackground}
               onMouseLeave={unselectedBackground}

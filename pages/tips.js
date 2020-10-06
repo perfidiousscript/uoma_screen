@@ -22,12 +22,14 @@ export default function Tips() {
         <p>
           The reader's choices affect the path and outcome of the story. The
           work considers ideas of agency, the boundaries of art and technology,
-          and eternal return. If you believe the story has ended, it has most
-          likely just begun.
+          and eternal return.
         </p>
         <p>
           Progress will be recorded automatically. You may close the story and
           return to it at any time to find yourself right where you left off.
+        </p>
+        <p>
+          If you believe the story has ended, it has most likely just begun.
         </p>
       </div>
       <div className="choices">
