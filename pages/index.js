@@ -1,10 +1,26 @@
 import Head from "next/head";
 import React from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import packageJson from "../package.json";
 import styles from "../styles/Home.module.css";
+import cookieCutter from "cookie-cutter";
+import {
+  uoma_logo,
+  uoma_logo_corrupt_1,
+  uoma_logo_corrupt_2
+} from "../story_material/logos.js";
 
 export default function Home() {
+  var [readThroughNumber, setReadThroughNumber] = useState(null);
+  var [logo, setLogo] = useState(uoma_logo);
+  const logo_array = [
+    uoma_logo,
+    uoma_logo,
+    uoma_logo_corrupt_1,
+    uoma_logo_corrupt_2
+  ];
+
   function selectedBackground(e) {
     e.target.style.background = "chartreuse";
     e.target.style.color = "black";
@@ -15,19 +31,40 @@ export default function Home() {
     e.target.style.color = "chartreuse";
   }
 
+  function updateReadThroughNumber() {
+    let rT = 0;
+    if (cookieCutter.get("readThroughNumber")) {
+      rT = cookieCutter.get("readThroughNumber");
+    }
+    setReadThroughNumber(rT);
+  }
+
+  function changeLogo() {
+    let nextLogo = Math.floor(Math.random() * logo_array.length);
+    console.log("nextLogo:", nextLogo);
+    setLogo(logo_array[nextLogo]);
+  }
+
+  function corruptText() {
+    setTimeout(() => {
+      changeLogo();
+    }, 100);
+  }
+
+  useEffect(() => {
+    updateReadThroughNumber();
+  }, [readThroughNumber]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      corruptText();
+    }, 1000);
+  }, [logo]);
+
   return (
     <>
       <div className="landingArt">
-        <pre className="uomaAscii">
-          {`
- _   _ ________  ___  ___
-| | | |  _  |  \\/  | / _ \\
-| | | | | | | .  . |/ /_\\ \\
-| | | | | | | |\\/| ||  _  |
-| |_| \\ \\_/ / |  | || | | |
- \\___/ \\___/\\_|  |_/\\_| |_/
-`}
-        </pre>
+        <pre className="uomaAscii">{logo}</pre>
         <span className="versionNumber">patch {packageJson.version}</span>
         <p className="bottomBar">{`############################################################################################`}</p>
         <div className="choices">

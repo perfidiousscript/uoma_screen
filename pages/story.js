@@ -4,7 +4,7 @@ import styles from "../styles/Home.module.css";
 import { story_json } from "../story_material/story.js";
 import cookieCutter from "cookie-cutter";
 
-export default function Home() {
+export default function Story() {
   var [currentPart, setPart] = useState("0");
   var [readThroughNumber, setReadThroughNumber] = useState(null);
   var [currentPosition, setCurrentPosition] = useState(null);
@@ -175,7 +175,6 @@ export default function Home() {
   }
 
   function checkCookies() {
-    console.log("cookie:", cookieCutter.get("readThroughNumber"));
     if (cookieCutter.get("readThroughNumber")) {
       setReadThroughNumber(cookieCutter.get("readThroughNumber"));
     } else {
