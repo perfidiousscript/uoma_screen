@@ -67,14 +67,22 @@ export default function Home() {
     }, jitter);
   }
 
+  function startText() {
+    if (readThroughNumber) {
+      return readThroughNumber == 0 ? "Start" : "Continue";
+    }
+  }
+
   useEffect(() => {
     updateReadThroughNumber();
   }, [readThroughNumber]);
 
   useEffect(() => {
-    setTimeout(() => {
-      corruptText();
-    }, 1000);
+    if (readThroughNumber == 1) {
+      setTimeout(() => {
+        corruptText();
+      }, 1000);
+    }
   }, [logo]);
 
   return (
@@ -91,7 +99,7 @@ export default function Home() {
               key="start"
               className="activeChoice"
             >
-              Start
+              {startText()}
             </span>
           </Link>
           <Link href="/tips">
@@ -102,6 +110,16 @@ export default function Home() {
               className="activeChoice"
             >
               Tips
+            </span>
+          </Link>
+          <Link href="/map">
+            <span
+              onMouseEnter={selectedBackground}
+              onMouseLeave={unselectedBackground}
+              key="start"
+              className="activeChoice"
+            >
+              Map
             </span>
           </Link>
           <Link href="/about">
