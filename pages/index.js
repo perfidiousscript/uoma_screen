@@ -8,17 +8,25 @@ import cookieCutter from "cookie-cutter";
 import {
   uoma_logo,
   uoma_logo_corrupt_1,
-  uoma_logo_corrupt_2
+  uoma_logo_corrupt_2,
+  uoma_logo_corrupt_3,
+  uoma_logo_corrupt_4,
+  uoma_logo_corrupt_5,
+  uoma_logo_corrupt_6
 } from "../story_material/logos.js";
 
 export default function Home() {
   var [readThroughNumber, setReadThroughNumber] = useState(null);
   var [logo, setLogo] = useState(uoma_logo);
+  var [isGlitching, setIsGlitching] = useState(false);
   const logo_array = [
     uoma_logo,
-    uoma_logo,
     uoma_logo_corrupt_1,
-    uoma_logo_corrupt_2
+    uoma_logo_corrupt_2,
+    uoma_logo_corrupt_3,
+    uoma_logo_corrupt_4,
+    uoma_logo_corrupt_5,
+    uoma_logo_corrupt_6
   ];
 
   function selectedBackground(e) {
@@ -40,15 +48,23 @@ export default function Home() {
   }
 
   function changeLogo() {
-    let nextLogo = Math.floor(Math.random() * logo_array.length);
-    console.log("nextLogo:", nextLogo);
-    setLogo(logo_array[nextLogo]);
+    if (!isGlitching) {
+      setIsGlitching(true);
+      let nextLogo = Math.floor(Math.random() * (logo_array.length - 1));
+      setLogo(logo_array[nextLogo + 1]);
+      setTimeout(() => {
+        setLogo(logo_array[0]);
+        setIsGlitching(false);
+        corruptText();
+      }, 150);
+    }
   }
 
   function corruptText() {
+    let jitter = 2000 * Math.random();
     setTimeout(() => {
       changeLogo();
-    }, 100);
+    }, jitter);
   }
 
   useEffect(() => {
