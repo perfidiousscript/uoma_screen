@@ -664,10 +664,26 @@ shrine:
 \f0\b0 \cf2 					  	   N\
 						 Forest \
 			 Forest		|Garden(N)    |   Forest    \
- 			 Forest        |Garden(S)(B2)||  STUDIO  |         Forest\
-	Forest    A-frame(NW)(B1)\ul | Sep's(B3)   |\ulnone    A-frame(Nar)(J2)  Forest\ul \
-\ulnone 	Forest    |Meditation(B4)|             ||  School    (J1)|  A-frame(NE)(J3) Plain\
-W	PATH(W)	    PATH(CW)		|  Shrine     |	  PATH  (J4)      PATH 	       PATH		E\
+ 			 Forest        |Garden(S)
+\f1\b (B2)
+\f0\b0 ||  STUDIO  |        Forest\
+	Forest    A-frame(NW)
+\f1\b (B1)
+\f0\b0 \ul | Sep's   
+\f1\b (B3)
+\f0\b0 |\ulnone  A-frame(Nar)
+\f1\b (J2)
+\f0\b0    Forest\ul \
+\ulnone 	Forest    |Meditation
+\f1\b (B4)
+\f0\b0 |             ||  School    
+\f1\b (J1)
+\f0\b0 |  A-frame(NE)
+\f1\b (J3)
+\f0\b0  Plain\
+W	PATH(W)	    PATH(ShW)	|  Shrine     |   PATH(ShE) 
+\f1\b (J4) 
+\f0\b0     PATH(E)	     PATH(PE)	E\
 	Forest	|  Admin   |	\ul |             |\ulnone |  Dining (A1) | A-frame(A2)(E)     Plain\
      Forest    A-frame(SW)    |   Medical    || Kitchen (A4) |A-frame (A3)(SE)   Forest\
 	Forest    |Orchard(W)|   |  Orchard(N)  ||Orchard(E)|  Forest\ul \
@@ -712,9 +728,9 @@ W	PATH(W)	    PATH(CW)		|  Shrine     |	  PATH  (J4)      PATH 	       PATH		E\
 	The Walkie-Talkie crackled, "This is James, I'm on the Path just East of the Shrine. Heading North to the School."\
 	The second voice came on "This is Bob. I'm at the Meditation Hall. Still no Sign of them here. Heading North the North-West A-frames now."\
 	\
-	(C) I waited outside my workspace. (w:2:studio:4)\
-	(S) I walked to my own A-frame. (w:1:aFrameNar:4)\
-	(E) I walked to the Garden. (w:1:gardenS:4)\
+	(C) I waited outside my workspace. (w:2:studio:1)\
+	(S) I walked to my own A-frame. (w:1:aFrameNar:1)\
+	(E) I walked to the Garden. (w:1:gardenS:1)\
 	\
 
 \f1\b aFrameNar
@@ -760,7 +776,7 @@ W	PATH(W)	    PATH(CW)		|  Shrine     |	  PATH  (J4)      PATH 	       PATH		E\
 	The second voice came on "This is Bob. I'm at the NorthWest A-Frames, heading East to the Garden."	\
 \
 	(C) I waited in the forest. (w:2:forest:2)\
-	(E) I walked back over to my A-Frame. (w:2:aFrameNar:2)\
+	(E) I walked back over to my A-Frame. (w:2:foundByJames)\
 	(S) I walked to the North-East A-Frames. (w:2:aFrameNE:2)\
 \
 	2: I crouched on the edge of the forest.\
@@ -771,7 +787,7 @@ W	PATH(W)	    PATH(CW)		|  Shrine     |	  PATH  (J4)      PATH 	       PATH		E\
 \
 	(C) I waited in the forest. (w:2:forest:3)\
 	(E) I walked back over to my A-Frame. (w:2:foundByJames)\
-	(S) I walked to the North-East A-Frames. (w:2:aFrameNE:3)\
+	(S) I walked to the North-East A-Frames. (w:2:foundByJames)\
 \
 	3: I crouched on the edge of the forest.\
 	The walkie-talkie crackled:\
@@ -783,7 +799,7 @@ W	PATH(W)	    PATH(CW)		|  Shrine     |	  PATH  (J4)      PATH 	       PATH		E\
 	(S) I walked to the North-East A-Frames. (w:2:aFrameNE:4)\
 \
 	4: I crouched on the edge of the forest.\
-	The walkie-talkie crackled, "This is James. At the Path West of the Shrine. Heading North to the School."\
+	The walkie-talkie crackled, "This is James. At the Path East of the Shrine. Heading North to the School."\
 	The second voice came on "This is Bob. I'm at the Meditation Hall. Still no sign of them here. Heading North to the North-West A-frames."\
 	\
 	(C) I waited in the forest. (w:2:forest:1)\
@@ -866,7 +882,7 @@ W	PATH(W)	    PATH(CW)		|  Shrine     |	  PATH  (J4)      PATH 	       PATH		E\
 \
 	1: I was standing outside of Sep's lodgings. \
 	The black, curving wall of the Shrine stood to the South. \
-	I would have to get to the East or West sides to enter the Shrine.\
+	I would have to get to its East or West side to enter the Shrine.\
 	The walkie-talkie crackled:\
 	"This is James. I'm at the School now. Heading North to their A-Frame."\
 	The second voice came on "This is Bob. I'm at the NorthWest A-Frames, heading East to the Garden."	\
@@ -929,56 +945,195 @@ W	PATH(W)	    PATH(CW)		|  Shrine     |	  PATH  (J4)      PATH 	       PATH		E\
 	The walkie-talkie crackled, "This is James. At the Path West of the Shrine. Heading North to the School."\
 	The second voice came on "This is Bob. I'm at the Meditation Hall. Still no sign of them here. Heading North to the North-West A-frames."\
 \
-	(C) I waited in the North-West A-Frames (w:2:aFrameNW:1)\
+	(C) I waited in the North-West A-Frames (w:1:foundByBob)\
 	(E) I walked to Seps lodgings (w:2:seps:1)\
 	(S) I walked to the Meditation Hall (w:2:meditation:1)\
 \
 
 \f1\b meditation
 \f0\b0 : \
-	1:Stood outside the meditation hall. No one was outside.\
+	1: I stood outside the meditation hall. There was no one around outside.\
+	I could see a flashlight beam in the A-Frames to the North.\
 	The lights were on and I could see many bodies inside.\
 	The walkie-talkie crackled:\
 	"This is James. I'm at the School now. Heading North to their A-Frame."\
-	The second voice came on "This is Bob. I'm at the NorthWest A-Frames, heading East to the Garden."	\
+	The second voice came on "This is Bob. I'm at the North-West A-Frames, heading East to the Garden."	\
 \
 	(M) I went inside. (20:rT1:a)\
 	(C) I stayed outside of the Meditation Hall (w:2:meditation:2)\
 	(N) I walked to the North-West A-frames (w:2:aFrameNW:2)\
-	(S) I walked to the Path (w:2:pathCE)\
-	\
+	(S) I walked to the Path (w:2:pathW:2)\
+\
+	2: I stood outside the meditation hall. There was no one around outside.\
+	The Walkie-Talkie crackled: \
+     "This is James, No sign of them at their A-Frame. Heading to the North-East A-Frames now."\
+	The second voice came on "This is Bob. I'm at the Garden now, heading South to Sep's cabin."\
+\
+	(M) I went inside. (20:rT1:a)\
+	(C) I stayed outside of the Meditation Hall (w:2:meditation:3)\
+	(N) I walked to the North-West A-frames (w:2:aFrameNW:3)\
+	(S) I walked to the Path (w:2:pathW)\
+\
+	3: I stood outside the meditation hall. There was no one around outside.\
+	The walkie-talkie crackled:\
+	"This is James. At the North-East A-frames. Heading South-West to the Path."\
+	The second voice came on "This is Bob. I'm at Sep's place. Heading South-West back to the Meditation Hall."\
+\
+	(M) I went inside. (20:rT1:a)\
+	(C) I stayed outside of the Meditation Hall (w:1:foundByBob)\
+	(N) I walked to the North-West A-frames (w:2:aFrameNW:4)\
+	(S) I walked to the Path (w:2:pathW)\
 \
 
 \f1\b school
-\f0\b0 : The school was a two story cinderblock building, whitewashed, with large windows reinforced with wire. Some ten or twelve children were inside listening attentively to the teacher, Erin, a woman I had met in passing. \
-\
-	(N) I walked to my A-frame (w:1:aFrameNar)\
-	(S) I walked to the Path (w:1:path)\
-	(E) I walked to the group of A-frames to the East. (w:1:aFrameB)\
-	(W) I walked to the Shrine (w:1:shrine)\
-\
-
-\f1\b aFrameB
-\f0\b0 : I walked to the group of A-Frames on the Eastern Edge of Uoma. Everyone was out in the orchards or the fields. To the east was a wide open, grassy plain through with the Path meandered until it disappeared into a crevice in the hills.\
-	\
-	(W) I walked to the school (w:1:school)\
-	(S) I walked to the Path (w:1:path)\
-\
-
-\f1\b path
 \f0\b0 : \
 \
+	2: I was standing outside the School, a two story cinderblock building.\
+	The Walkie-Talkie crackled: \
+     "This is James, No sign of them at their A-Frame. Heading to the North-East A-Frames now."\
+	The second voice came on "This is Bob. I'm at the Garden now, heading South to Sep's cabin."\
+\
+	(C) I waited outside the School (w:2:school:3)\
+	(N) I walked to my A-frame (w:2:aFrameNar:3)\
+	(S) I walked to the Path (w:2:pathE:3)\
+	(E) I walked to the North-East group of A-frames. (w:2:aFrameNE:3)\
+\
+	3: I was standing outside the School, a two story cinderblock building.\
+	The walkie-talkie crackled:\
+	"This is James. At the North-East A-frames. Heading South-West to the Path."\
+	The second voice came on "This is Bob. I'm at Sep's place. Heading South-West back to the Meditation Hall."\
+\
+	(C) I waited outside the School (w:2:school:4)\
+	(N) I walked to my A-frame (w:2:aFrameNar:4)\
+	(S) I walked to the Path (w:2:pathE:4)\
+	(E) I walked to the North-East group of A-frames. (w:2:aFrameNE:4)\
+\
+	4: I was standing outside the School, a two story cinderblock building.\
+\
+	(C) I waited outside the School (foundByJames)\
+	(N) I walked to my A-frame (w:2:aFrameNar:1)\
+	(S) I walked to the Path (foundByJames)\
+	(E) I walked to the North-East group of A-frames. (w:2:aFrameNE:1)\
+\
+\
 
-\f1\b shrine:
-\f0\b0  The Shrine. I had only ever seen things like it in my dreams. It was situated in the middle of a large square at the center of Uoma easily the largest building in the seetlement. It was composed of black stone, porous and craggy like the kind you see near volcanoes. The seams between the blocks were nearly imperceptible.\
-	Stairways on the East and West sides of the Shrine led up to pairs of doors.\
-	At the top center of the shrine was a massive pinnacle of some bright metal--likely nickle or chrome, though it shone like silver. The place seemed to thrum with an energy.\
-	I still had no notion of what went on inside, or what the shrine might hold.\
+\f1\b aFrameNE
+\f0\b0 : \
+	1: I stood within the group of A-Frames on the North-East corner of Uoma.\
+	The walkie-talkie crackled:\
+	"This is James. I'm at the School now. Heading North to their A-Frame."\
+	The second voice came on "This is Bob. I'm at the North-West A-Frames, heading East to the Garden."	\
 \
-	(N) I walked to Seps lodgings (w:1:seps)\
-	(W) I walked to the Meditation Hall. (w:1:meditation)\
-	(E) I walked to the School. (w:1:school) \
+	(C) I waited in the North-East A-Frames. (w:2:aFrameNE:2)\
+	(N) I walked to the Forest (w:2:forest:2)\
+	(S) I walked to the Path (w:2:pathE:2)\
+	(W) I walked to the school (w:2:school:2)\
 \
+	2: I stood within the group of A-Frames on the North-East corner of Uoma.\
+	The Walkie-Talkie crackled: \
+     "This is James, No sign of them at their A-Frame. Heading to the North-East A-Frames now."\
+	The second voice came on "This is Bob. I'm at the Garden now, heading South to Sep's cabin."\
+	\
+	(C) I waited in the North-East A-Frames. (foundByJames)\
+	(N) I walked to the Forest (w:2:forest:3)\
+	(S) I walked to the Path (w:2:pathE:3)\
+	(W) I walked to the school (w:2:school:3)\
+\
+	\
+	3: [Caught by James.]\
+\
+	4: I stood within the group of A-Frames on the North-East corner of Uoma.\
+	The walkie-talkie crackled, "This is James. At the Path West of the Shrine. Heading North to the School."\
+	The second voice came on "This is Bob. I'm at the Meditation Hall. Still no sign of them here. Heading North to the North-West A-frames."\
+\
+	(C) I waited in the North-East A-Frames. (w:2:aFrameNE:1)\
+	(N) I walked to the Forest (w:2:forest:1)\
+	(S) I walked to the Path (w:2:pathE:1)\
+	(W) I walked to the school (w:2:school:1)\
+\
+
+\f1\b pathE: 
+\f0\b0 \
+	1: I stood on the East part of the Path. \
+	Just a short stretch of Path lay between me and the entrance to the Shrine.\
+	The walkie-talkie crackled:\
+	"This is James. I'm at the School now. Heading North to their A-Frame."\
+	The second voice came on "This is Bob. I'm at the North-West A-Frames, heading East to the Garden."	\
+	\
+	(C) I waited on the Path (w:2:pathE:2)\
+	(N) I walked North to the North-East A-Frames. (w:2:aFrameNE:2)\
+	(W) I walked on the Path toward the Shrine. (w:2:pathShE:2)\
+\
+	2: I stood on the East part of the Path.\
+	The Walkie-Talkie crackled: \
+     "This is James, No sign of them at their A-Frame. Heading to the North-East A-Frames now."\
+	The second voice came on "This is Bob. I'm at the Garden now, heading South to Sep's cabin."\
+\
+	(C) I waited on the Path (w:2:pathE:3)\
+	(N) I walked North to the North-East A-Frames. (w:2:foundByJames)\
+	(W) I walked on the Path toward the Shrine. (w:2:pathShE:3)\
+	\
+	3: I stood on the East part of the Path.\
+	I could see a flashlight in the A-Frames just to the North.\
+	The walkie-talkie crackled:\
+	"This is James. At the North-East A-frames. Heading South-West to the Path."\
+	The second voice came on "This is Bob. I'm at Sep's place. Heading South-West back to the Meditation Hall."\
+\
+	(C) I waited on the Path (w:2:pathE:3)\
+	(N) I walked North to the North-East A-Frames. (w:2:foundByJames)\
+	(W) I walked on the Path toward the Shrine. (w:2:foundByJames)\
+\
+	4: I stood on the East part of the Path.\
+	I saw James walking out of the A-Frames onto the Path and I ducked out of view.\
+	The walkie-talkie crackled:\
+	"This is James. At the Path just East of the Shrine. Heading North to the School."\
+	The second voice came on "This is Bob. I'm at the Meditation Hall. Still no sign of them here. Heading North to the North-West A-frames."\
+	\
+	(C) I waited on the Path (w:2:pathE:1)\
+	(N) I walked North to the North-East A-Frames. (w:2:aFrameNE:1)\
+	(W) I walked on the Path toward the Shrine. (w:2:pathShE:1)\
+\
+\
+
+\f1\b pathShE: 
+\f0\b0 \
+	1: I stood on the Path just East of the Shrine, the entrance within view.\
+	The walkie-talkie crackled:\
+	"This is James. I'm at the School now. Heading North to their A-Frame."\
+	The second voice came on "This is Bob. I'm at the North-West A-Frames, heading East to the Garden."	\
+\
+	(C) I waited on the Path. (w:2:pathShE:2)\
+	(N) I walked North to the School (w:2:school:2)\
+	(W) I went to the the Shrine (w:2:Shrine:1)\
+\
+	2: I stood on the Path just East of the Shrine, the entrance within view.\
+	The Walkie-Talkie crackled: \
+     "This is James, No sign of them at their A-Frame. Heading to the North-East A-Frames now."\
+	The second voice came on "This is Bob. I'm at the Garden now, heading South to Sep's cabin."\
+\
+	(C) I waited on the Path. (w:2:pathShE:3)\
+	(N) I walked North to the School (w:2:school:3)\
+	(W) I went to the the Shrine (w:2:Shrine:1)\
+\
+\
+	3: I stood on the Path just East of the Shrine, the entrance within view.\
+	The walkie-talkie crackled:\
+	"This is James. At the North-East A-frames. Heading South-West to the Path."\
+	The second voice came on "This is Bob. I'm at Sep's place. Heading South-West back to the Meditation Hall."\
+	\
+	(C) I waited on the Path. (w:2:foundByJames)\
+	(N) I walked North to the School (w:2:school:4)\
+	(W) I went to the Shrine (w:2:Shrine:1)\
+	\
+	4: [Found by James]\
+	\
+
+\f1\b pathShW: 
+\f0\b0 \
+	1: I stood on the Path just West of the Shrine.\
+\
+	(E) I walked to the Shrine. (w:2:Shrine:1)\
+	\
 
 \f1\b foundByBob:\
 \
@@ -1230,6 +1385,15 @@ a:
 \pard\pardeftab720\partightenfactor0
 \cf2 \
 	\
+
+\f1\b \ul Shrine
+\f0\b0 \ulnone \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\b \cf2 1\
+	
+\f0\b0 \
 \
 \pard\pardeftab720\partightenfactor0
 
