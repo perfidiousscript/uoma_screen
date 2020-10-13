@@ -105,5 +105,133 @@ export const wander_2 = {
         }
       ]
     }
+  },
+  aFrameNar: {
+    "1": {
+      text: [
+        ["I was standing outside of my A-Frame."],
+        ["The walkie-talkie crackled:"],
+        [
+          '"This is James. I`m at the School now. Heading North to their A-Frame now."'
+        ],
+        [
+          'The second voice came on "This is Bob. I`m at the NorthWest A-Frames, heading East to the Garden."'
+        ]
+      ],
+      choices: [
+        {
+          text: "(C) I waited outside my A-Frame",
+          id: { part: "foundByJames" }
+        },
+        {
+          text: "(N) I walked to my studio.",
+          id: { part: "wander_2", area: "studio", time: "2" }
+        },
+        { text: "(S) I walked to the school", id: { part: "foundByJames" } },
+        {
+          text: "(E) I walked to Sep`s lodging`s.",
+          id: { part: "wander_2", area: "seps", time: "2" }
+        },
+        {
+          text: "(W) I ducked into the Forest.",
+          id: { part: "wander_2", area: "forest", time: "2" }
+        }
+      ]
+    },
+    "3": {
+      text: [
+        ["I was standing outside of my A-Frame."],
+        ["The walkie-talkie crackled:"],
+        [
+          '"This is James. At the North-East A-frames. Heading South-West to the Path."'
+        ],
+        [
+          'The second voice came on "This is Bob. I`m at Sep`s place. Heading South-West to the Meditation Hall."'
+        ]
+      ],
+      choices: [
+        {
+          text: "(C) I waited outside my A-Frame",
+          id: { part: " wander_2", area: "aFrameNar", time: "4" }
+        },
+        {
+          text: "(N) I walked to my studio.",
+          id: { part: "wander_2", area: "studio", time: "4" }
+        },
+        {
+          text: "(S) I walked to the school",
+          id: { part: "wander_2", area: "school", time: "4" }
+        },
+        {
+          text: "(E) I walked to Sep`s lodging`s.",
+          id: { part: "wander_2", area: "seps", time: "4" }
+        },
+        {
+          text: "(W) I ducked into the Forest.",
+          id: { part: "wander_2", area: "forest", time: "4" }
+        }
+      ]
+    },
+    "4": {
+      text: [
+        ["I was standing outside of my A-Frame."],
+        ["The walkie-talkie crackled:"],
+        [
+          '"This is James. At the Path West of the Shrine. Heading North to the School."'
+        ][
+          'The second voice came on "This is Bob. I`m at the Meditation Hall. Still no sign of them here. Heading North to the North-West A-frames."'
+        ]
+      ],
+      choices: [
+        [
+          {
+            text: "(C) I waited outside my A-Frame",
+            id: { part: " wander_2", area: "aFrameNar", time: "1" }
+          },
+          {
+            text: "(N) I walked to my studio.",
+            id: { part: "wander_2", area: "studio", time: "1" }
+          },
+          {
+            text: "(S) I walked to the school",
+            id: { part: "wander_2", area: "school", time: "1" }
+          },
+          {
+            text: "(E) I walked to Sep`s lodging`s.",
+            id: { part: "wander_2", area: "seps", time: "1" }
+          },
+          {
+            text: "(W) I ducked into the Forest.",
+            id: { part: "wander_2", area: "forest", time: "1" }
+          }
+        ]
+      ]
+    }
+  },
+  gardenS: {
+    "1": {
+      text: [
+        ["I was standing in the South Part of the Garden."],
+        ["The walkie-talkie crackled:"],
+        [
+          '"This is James. I`m at the School now. Heading North to their A-Frame."'
+        ],
+        [
+          'The second voice came on "This is Bob. I`m at the NorthWest A-Frames, heading East to the South Plot of the Garden."'
+        ]
+      ],
+      choices: [
+        {
+          text: "(C) I waited in the Garden.",
+          id: { part: "foundByBob" }
+        },
+        {
+          text: "(N) I walked to the North Plot of the Garden.",
+          id: { part: "wander_2", area: "gardenN", time: "2" }
+        }
+      ]
+    },
+    "3": { text: [], choices: [] },
+    "4": { text: [], choices: [] }
   }
 };
