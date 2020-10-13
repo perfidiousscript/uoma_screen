@@ -29,11 +29,11 @@ export const wander_2 = {
     "2": {
       text: [
         ["I was standing outside my workspace."],
+        ["I could see the beam of James's flashlight over at my A-frame."],
         ["The Walkie-Talkie crackled: "],
         [
           '"This is James, No sign of them at their A-Frame. Heading to the North-East A-Frames now."'
         ],
-        ["I could see the beam of James's flashlight over at my A-frame."],
         [
           "The second voice came on 'This is Bob. I'm at the Garden now, heading South to Sep's cabin.''"
         ]
@@ -152,7 +152,7 @@ export const wander_2 = {
       choices: [
         {
           text: "(C) I waited outside my A-Frame",
-          id: { part: " wander_2", area: "aFrameNar", time: "4" }
+          id: { part: "wander_2", area: "aFrameNar", time: "4" }
         },
         {
           text: "(N) I walked to my studio.",
@@ -178,33 +178,32 @@ export const wander_2 = {
         ["The walkie-talkie crackled:"],
         [
           '"This is James. At the Path West of the Shrine. Heading North to the School."'
-        ][
+        ],
+        [
           'The second voice came on "This is Bob. I`m at the Meditation Hall. Still no sign of them here. Heading North to the North-West A-frames."'
         ]
       ],
       choices: [
-        [
-          {
-            text: "(C) I waited outside my A-Frame",
-            id: { part: " wander_2", area: "aFrameNar", time: "1" }
-          },
-          {
-            text: "(N) I walked to my studio.",
-            id: { part: "wander_2", area: "studio", time: "1" }
-          },
-          {
-            text: "(S) I walked to the school",
-            id: { part: "wander_2", area: "school", time: "1" }
-          },
-          {
-            text: "(E) I walked to Sep`s lodging`s.",
-            id: { part: "wander_2", area: "seps", time: "1" }
-          },
-          {
-            text: "(W) I ducked into the Forest.",
-            id: { part: "wander_2", area: "forest", time: "1" }
-          }
-        ]
+        {
+          text: "(C) I waited outside my A-Frame",
+          id: { part: "wander_2", area: "aFrameNar", time: "1" }
+        },
+        {
+          text: "(N) I walked to my studio.",
+          id: { part: "wander_2", area: "studio", time: "1" }
+        },
+        {
+          text: "(S) I walked to the school",
+          id: { part: "wander_2", area: "school", time: "1" }
+        },
+        {
+          text: "(E) I walked to Sep`s lodging`s.",
+          id: { part: "wander_2", area: "seps", time: "1" }
+        },
+        {
+          text: "(W) I ducked into the Forest.",
+          id: { part: "wander_2", area: "forest", time: "1" }
+        }
       ]
     }
   },
@@ -382,7 +381,8 @@ export const wander_2 = {
         ["The walkie-talkie crackled:"],
         [
           '"This is James. At the Path West of the Shrine. Heading North to the School."'
-        ][
+        ],
+        [
           'The second voice came on "This is Bob. I`m at the Meditation Hall. Still no sign of them here. Heading North to the North-West A-frames."'
         ]
       ],
