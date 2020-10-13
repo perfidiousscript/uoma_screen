@@ -14,7 +14,7 @@ export const two = {
       ]
     ],
     choices: [
-      { text: "Sep looked, I don’t know how else to say it…", id: "3a" }
+      { text: "Sep looked, I don’t know how else to say it…", part: "3a" }
     ]
   },
   "1": {
@@ -32,7 +32,7 @@ export const two = {
       ]
     ],
     choices: [
-      { text: "Sep looked, I don’t know how else to say it…", id: "3b" }
+      { text: "Sep looked, I don’t know how else to say it…", part: "3b" }
     ]
   },
   "2": {
@@ -49,7 +49,7 @@ export const two = {
       ]
     ],
     choices: [
-      { text: "Sep looked, I don’t know how else to say it…", id: "3c" }
+      { text: "Sep looked, I don’t know how else to say it…", part: "3c" }
     ]
   },
   "3": {
@@ -62,7 +62,7 @@ export const two = {
       ["He called himself Donas"]
     ],
     choices: [
-      { text: "Donas) looked, I don’t know how else to say it…", id: "3d" }
+      { text: "Donas) looked, I don’t know how else to say it…", part: "3d" }
     ]
   }
 };
@@ -79,7 +79,9 @@ export const two_a = {
     ],
     ["He said his name was Darrell Sepulveda, but his friends called him Sep."]
   ],
-  choices: [{ text: "Sep looked, I don’t know how else to say it…", id: "3a" }]
+  choices: [
+    { text: "Sep looked, I don’t know how else to say it…", part: "3a" }
+  ]
 };
 
 export const two_b = {
@@ -94,7 +96,9 @@ export const two_b = {
     ],
     ["He said his name was Darrell Sepulveda, but his friends called him Sep."]
   ],
-  choices: [{ text: "Sep looked, I don’t know how else to say it…", id: "3b" }]
+  choices: [
+    { text: "Sep looked, I don’t know how else to say it…", part: "3b" }
+  ]
 };
 
 export const two_c = {
@@ -108,7 +112,9 @@ export const two_c = {
     ],
     ["He said his name was Darrell Sepulveda, but his friends called him Sep."]
   ],
-  choices: [{ text: "Sep looked, I don’t know how else to say it…", id: "3c" }]
+  choices: [
+    { text: "Sep looked, I don’t know how else to say it…", part: "3c" }
+  ]
 };
 
 export const two_d = {
@@ -121,6 +127,6 @@ export const two_d = {
     ["He called himself Donas"]
   ],
   choices: [
-    { text: "Donas) looked, I don’t know how else to say it…", id: "3d" }
+    { text: "Donas) looked, I don’t know how else to say it…", part: "3d" }
   ]
 };

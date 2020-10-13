@@ -35,7 +35,7 @@ export const one_json = {
     choices: [
       {
         text: "It was the nadir of my life, but I was found.",
-        id: "2"
+        part: "2"
       }
     ]
   },
@@ -75,7 +75,7 @@ export const one_json = {
     choices: [
       {
         text: "It was the nadir of my life, but I was found.",
-        id: "2"
+        part: "2"
       }
     ]
   },
@@ -115,7 +115,7 @@ export const one_json = {
     choices: [
       {
         text: "It was the nadir of my life, but I was found.",
-        id: "2"
+        part: "2"
       }
     ]
   },
@@ -155,7 +155,7 @@ export const one_json = {
     choices: [
       {
         text: "It was the nadir of my life, but I was found.",
-        id: "2"
+        part: "2"
       }
     ]
   }

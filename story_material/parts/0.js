@@ -12,7 +12,7 @@ export const zero_json = {
     choices: [
       {
         text: "I came here because...",
-        id: "1"
+        id: { part: "1" }
       }
     ]
   }

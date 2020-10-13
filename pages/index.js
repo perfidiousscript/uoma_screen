@@ -40,10 +40,10 @@ export default function Home() {
   }
 
   function updateReadThroughNumber() {
-    let rT = 0;
-    if (cookieCutter.get("readThroughNumber")) {
-      rT = cookieCutter.get("readThroughNumber");
+    if (!cookieCutter.get("readThroughNumber")) {
+      cookieCutter.set("0");
     }
+    let rT = cookieCutter.get("readThroughNumber");
     setReadThroughNumber(rT);
   }
 

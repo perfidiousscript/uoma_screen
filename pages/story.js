@@ -5,7 +5,9 @@ import { story_json } from "../story_material/story.js";
 import cookieCutter from "cookie-cutter";
 
 export default function Story() {
-  var [currentPart, setPart] = useState("0");
+  var [currentPart, setPart] = useState("wander_2");
+  var [area, setArea] = useState("studio");
+  var [time, setTime] = useState(1);
   var [readThroughNumber, setReadThroughNumber] = useState(null);
   var [currentPosition, setCurrentPosition] = useState(null);
   var [occupation, setOccupation] = useState(null);
@@ -14,6 +16,8 @@ export default function Story() {
 
   // var [anEffect, setAnEffect] = useState(false);
   // var [anotherEffect, setAnotherEffect] = useState(false);
+  var [textArray, setTextArray] = useState([]);
+  var [choices, setChoices] = useState([]);
   var [shownText, setShownText] = useState("");
   var [shownText_1, setShownText_1] = useState("");
   var [shownText_2, setShownText_2] = useState("");
@@ -38,50 +42,46 @@ export default function Story() {
   }
 
   function selectChoice(e) {
-    setPart(e.target.dataset.choice);
+    setPart(e.target.dataset.part);
+    if (currentPart.match(/wander/)) {
+      setArea(e.target.dataset.area);
+      setTime(e.target.dataset.time);
+    }
     enactEffect(e.target.dataset.effecttype, e.target.dataset.effectchange);
-    advanceLine();
-    setTextArrayIndex(0);
-    if (currentPart === "wander") {
-      setCurrentPosition(story_json[currentPart][readThroughNumber][location]);
+    if (currentPart.match(/wander/)) {
+      setCurrentPosition(story_json[currentPart][area][time]);
     } else {
       setCurrentPosition(story_json[currentPart][readThroughNumber]);
     }
+    console.log();
+    setTextArray(currentPosition.text);
+    setChoices(currentPosition.choices);
+    advanceLine();
+    setTextArrayIndex(0);
     printText("");
   }
 
   function advanceText(text) {
-    let newText = story_json[currentPart][readThroughNumber].text[
-      textArrayIndex
-    ][0].slice(0, text.length + 1);
+    let newText = textArray[textArrayIndex][0].slice(0, text.length + 1);
     setShownText(newText);
   }
 
   function storyPosition() {
     if (currentPart === "wander") {
-      story_json[currentPart][readThroughNumber][location];
+      story_json[currentPart][readThroughNumber][area];
     } else {
       story_json[currentPart][readThroughNumber];
     }
   }
 
   function printText(text) {
-    if (
-      textArrayIndex <= story_json[currentPart][readThroughNumber].text.length
-    ) {
-      if (
-        text.length <
-        story_json[currentPart][readThroughNumber].text[textArrayIndex][0]
-          .length
-      ) {
+    if (textArrayIndex <= textArray.length) {
+      if (text.length < textArray[textArrayIndex][0].length) {
         let jitter = 20 + Math.random() * 100;
         setTimeout(() => {
           advanceText(text);
         }, jitter);
-      } else if (
-        textArrayIndex <
-        story_json[currentPart][readThroughNumber].text.length - 1
-      ) {
+      } else if (textArrayIndex < textArray.length - 1) {
         setTimeout(() => {
           advanceLine();
         }, 500);
@@ -95,23 +95,17 @@ export default function Story() {
     setShownText_2(shownText_1);
     setShownText_1(shownText);
     setShownText("");
-    if (
-      textArrayIndex <
-      story_json[currentPart][readThroughNumber].text.length - 1
-    ) {
+    if (textArrayIndex < textArray.length - 1) {
       let new_length = textArrayIndex + 1;
       setTextArrayIndex(new_length);
     }
   }
 
   function displayChoices() {
-    if (story_json[currentPart][readThroughNumber].text[textArrayIndex]) {
+    if (textArray[textArrayIndex]) {
       if (
-        textArrayIndex <
-          story_json[currentPart][readThroughNumber].text.length - 1 ||
-        shownText.length <
-          story_json[currentPart][readThroughNumber].text[textArrayIndex][0]
-            .length
+        textArrayIndex < textArray.length - 1 ||
+        shownText.length < textArray[textArrayIndex][0].length
       ) {
         return { display: "none" };
       }
@@ -122,11 +116,9 @@ export default function Story() {
     var compiledChoices = [];
     var choicesArray = [];
     if (currentPart === "1") {
-      choicesArray.push(
-        story_json[currentPart][readThroughNumber].choices[readThroughNumber]
-      );
+      choicesArray.push(choices[readThroughNumber]);
     } else {
-      choicesArray = story_json[currentPart][readThroughNumber].choices;
+      choicesArray = choices;
     }
 
     function checkActive(activeHash) {
@@ -148,9 +140,11 @@ export default function Story() {
             onMouseEnter={selectedBackground}
             onMouseLeave={unselectedBackground}
             onClick={selectChoice}
-            key={choice.id}
+            key={choice.id.part + choice.id.area}
             className="activeChoice"
-            data-choice={choice.id}
+            data-part={choice.id.part}
+            data-area={choice.id.area}
+            data-time={choice.id.time}
             data-effecttype={choice.effectType}
             data-effectchange={choice.effectChange}
           >
@@ -162,7 +156,7 @@ export default function Story() {
           <p
             key={choice.id}
             className="inActiveChoice"
-            data-choice={choice.id}
+            data-part={choice.id.part}
             data-effecttype={choice.effectType}
             data-effectchange={choice.effectChange}
           >
@@ -188,6 +182,15 @@ export default function Story() {
   }, [readThroughNumber]);
 
   useEffect(() => {
+    if (currentPart.match(/wander/)) {
+      setCurrentPosition(story_json[currentPart][area][time]);
+      setTextArray(story_json[currentPart][area][time].text);
+      setChoices(story_json[currentPart][area][time].choices);
+    } else {
+      setCurrentPosition(story_json[currentPart][readThroughNumber]);
+      setTextArray(story_json[currentPart][readThroughNumber].text);
+      setChoices(story_json[currentPart][readThroughNumber].choices);
+    }
     readThroughNumber && printText(shownText);
   }, [readThroughNumber, shownText]);
 
