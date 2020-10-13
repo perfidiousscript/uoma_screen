@@ -211,7 +211,7 @@ export const wander_2 = {
   gardenS: {
     "1": {
       text: [
-        ["I was standing in the South Part of the Garden."],
+        ["I was standing in the South Plot of the Garden."],
         ["The walkie-talkie crackled:"],
         [
           '"This is James. I`m at the School now. Heading North to their A-Frame."'
@@ -228,10 +228,174 @@ export const wander_2 = {
         {
           text: "(N) I walked to the North Plot of the Garden.",
           id: { part: "wander_2", area: "gardenN", time: "2" }
+        },
+        {
+          text: "(S) I walked South, to Sep's lodgings.",
+          id: { part: "wander_2", area: "seps", time: "2" }
+        },
+        {
+          text: "I walked to my studio.",
+          id: { part: "wander_2", area: "studio", time: "2" }
         }
       ]
     },
-    "3": { text: [], choices: [] },
-    "4": { text: [], choices: [] }
+    "3": {
+      text: [
+        ["I was standing in the South Plot of the Garden."],
+        ["The walkie-talkie crackled:"],
+        [
+          '"This is James. At the North-East A-frames. Heading South-West to the Path."'
+        ],
+        [
+          'The second voice came on "This is Bob. I`m at Sep`s place. Heading South-West back to the Meditation Hall."'
+        ]
+      ],
+      choices: [
+        {
+          text: "(C) I waited in the Garden.",
+          id: { part: "wander_2", area: "gardenS", time: "4" }
+        },
+        {
+          text: "(N) I walked to the North Plot of the Garden.",
+          id: { part: "wander_2", area: "gardenN", time: "4" }
+        },
+        {
+          text: "(S) I walked South, to Sep's lodgings.",
+          id: { part: "wander_2", area: "seps", time: "4" }
+        },
+        {
+          text: "I walked to my studio.",
+          id: { part: "wander_2", area: "studio", time: "4" }
+        }
+      ]
+    },
+    "4": {
+      text: [
+        ["I was standing in the South Plot of the Garden."],
+        ["The walkie-talkie crackled:"],
+        [
+          '"This is James. At the Path West of the Shrine. Heading North to the School."'
+        ],
+        [
+          'The second voice came on "This is Bob. I`m at the Meditation Hall. Still no sign of them here. Heading North to the North-West A-frames."'
+        ]
+      ],
+      choices: [
+        {
+          text: "(C) I waited in the Garden.",
+          id: { part: "wander_2", area: "gardenS", time: "1" }
+        },
+        {
+          text: "(N) I walked to the North Plot of the Garden.",
+          id: { part: "wander_2", area: "gardenN", time: "1" }
+        },
+        {
+          text: "(S) I walked South, to Sep's lodgings.",
+          id: { part: "wander_2", area: "seps", time: "1" }
+        },
+        {
+          text: "(E) I walked to my studio.",
+          id: { part: "wander_2", area: "studio", time: "1" }
+        }
+      ]
+    }
+  },
+  gardenN: {
+    "1": {
+      text: [
+        [
+          "I stood in the North plot of the Garden. Thick forest rimmed the North, East and West sides."
+        ],
+        ["The walkie-talkie crackled:"],
+        [
+          "This is James. I'm at the School now. Heading North to their A-Frame."
+        ],
+        [
+          'The second voice came on "This is Bob. I`m at the NorthWest A-Frames, heading East to the Garden."'
+        ]
+      ],
+      choices: [
+        {
+          text: "(C) I waited in the North plot of the Garden",
+          id: { part: "wander_2", area: "gardenN", time: "2" }
+        },
+        {
+          text: "(S) I walked to the South plot of the Garden",
+          id: { part: "wander_2", area: "gardenS", time: "2" }
+        }
+      ]
+    },
+    "2": {
+      text: [
+        [
+          "  I stood in the North plot of the Garden. Thick forest rimmed the North, East and West sides."
+        ],
+        ["I could see a flashlight beam in the South plot of the Garden."],
+        ["The Walkie-Talkie crackled:"],
+        [
+          '"This is James, No sign of them at their A-Frame. Heading to the North-East A-Frames now."'
+        ],
+        [
+          'The second voice came on "This is Bob. I`m at the Garden now, heading South to Sep`s cabin."'
+        ]
+      ],
+      choices: [
+        {
+          text: "(C) I waited in the North plot of the Garden",
+          id: { part: "wander_2", area: "gardenN", time: "3" }
+        },
+        {
+          text: "(S) I walked to the South plot of the Garden",
+          id: { part: "wander_2", area: "gardenS", time: "3" }
+        }
+      ]
+    },
+    "3": {
+      text: [
+        [
+          "I stood in the North plot of the Garden. Thick forest rimmed the North, East and West sides."
+        ],
+        ["The walkie-talkie crackled:"],
+        [
+          '"This is James. At the North-East A-frames. Heading South-West to the Path."'
+        ],
+        [
+          'The second voice came on "This is Bob. I`m at Sep`s place. Heading South-West back to the Meditation Hall."'
+        ]
+      ],
+      choices: [
+        {
+          text: "(C) I waited in the North plot of the Garden",
+          id: { part: "wander_2", area: "gardenN", time: "4" }
+        },
+        {
+          text: "(S) I walked to the South plot of the Garden",
+          id: { part: "wander_2", area: "gardenS", time: "4" }
+        }
+      ]
+    },
+    "4": {
+      text: [
+        [
+          "I stood in the North plot of the Garden. Thick forest rimmed the North, East and West sides."
+        ],
+        ["The walkie-talkie crackled:"],
+        [
+          '"This is James. At the Path West of the Shrine. Heading North to the School."'
+        ][
+          'The second voice came on "This is Bob. I`m at the Meditation Hall. Still no sign of them here. Heading North to the North-West A-frames."'
+        ]
+      ],
+      choices: [
+        {
+          text: "(C) I waited in the North plot of the Garden",
+          id: { part: "wander_2", area: "gardenN", time: "1" }
+        },
+        {
+          text: "(S) I walked to the South plot of the Garden",
+          id: { part: "wander_2", area: "gardenS", time: "1" }
+        }
+      ]
+    }
   }
 };
