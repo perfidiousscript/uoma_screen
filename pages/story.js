@@ -53,7 +53,6 @@ export default function Story() {
     } else {
       setCurrentPosition(story_json[currentPart][readThroughNumber]);
     }
-    console.log();
     setTextArray(currentPosition.text);
     setChoices(currentPosition.choices);
     advanceLine();
@@ -136,7 +135,7 @@ export default function Story() {
     choicesArray.map(function(choice) {
       if (checkActive(choice.active)) {
         compiledChoices.push(
-          <p
+          <div
             onMouseEnter={selectedBackground}
             onMouseLeave={unselectedBackground}
             onClick={selectChoice}
@@ -149,11 +148,11 @@ export default function Story() {
             data-effectchange={choice.effectChange}
           >
             {choice.text}
-          </p>
+          </div>
         );
       } else {
         compiledChoices.push(
-          <p
+          <div
             key={choice.id}
             className="inActiveChoice"
             data-part={choice.id.part}
@@ -161,7 +160,7 @@ export default function Story() {
             data-effectchange={choice.effectChange}
           >
             {choice.text}
-          </p>
+          </div>
         );
       }
     });
@@ -182,6 +181,9 @@ export default function Story() {
   }, [readThroughNumber]);
 
   useEffect(() => {
+    console.log("currentPart:", currentPart);
+    console.log("area:", area);
+    console.log("time:", time);
     if (currentPart.match(/wander/)) {
       setCurrentPosition(story_json[currentPart][area][time]);
       setTextArray(story_json[currentPart][area][time].text);
