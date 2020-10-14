@@ -13,9 +13,8 @@ export default function Story() {
   var [occupation, setOccupation] = useState(null);
   var [courage, setCourage] = useState(0);
   var [insanity, setInsanity] = useState(0);
+  var [trust, setTrust] = useState(0);
 
-  // var [anEffect, setAnEffect] = useState(false);
-  // var [anotherEffect, setAnotherEffect] = useState(false);
   var [textArray, setTextArray] = useState([]);
   var [choices, setChoices] = useState([]);
   var [shownText, setShownText] = useState("");
@@ -35,10 +34,27 @@ export default function Story() {
     e.target.style.color = "chartreuse";
   }
 
-  function enactEffect(effectType, effectChange) {
-    // if (effectType === "a") {
-    //   setAnEffect(effectChange);
-    // }
+  function enactEffect(effectType) {
+    switch (effectType) {
+      case "trustUp":
+        setTrust(trust + 1);
+        break;
+      case "trustDown":
+        setTrust(trust - 1);
+        break;
+      case "courageUp":
+        setCourage(courage + 1);
+        break;
+      case "trustDown":
+        setCourage(courage - 1);
+        break;
+      case "insanityUp":
+        setInsanity(insanity + 1);
+        break;
+      case "trustDown":
+        setInsanity(insanity - 1);
+        break;
+    }
   }
 
   function selectChoice(e) {
@@ -47,7 +63,7 @@ export default function Story() {
       setArea(e.target.dataset.area);
       setTime(e.target.dataset.time);
     }
-    enactEffect(e.target.dataset.effecttype, e.target.dataset.effectchange);
+    enactEffect(e.target.dataset.effecttype);
     if (currentPart.match(/wander/)) {
       setCurrentPosition(story_json[currentPart][area][time]);
     } else {
@@ -145,20 +161,13 @@ export default function Story() {
             data-area={choice.id.area}
             data-time={choice.id.time}
             data-effecttype={choice.effectType}
-            data-effectchange={choice.effectChange}
           >
             {choice.text}
           </div>
         );
       } else {
         compiledChoices.push(
-          <div
-            key={choice.id}
-            className="inActiveChoice"
-            data-part={choice.id.part}
-            data-effecttype={choice.effectType}
-            data-effectchange={choice.effectChange}
-          >
+          <div key={choice.id} className="inActiveChoice">
             {choice.text}
           </div>
         );
