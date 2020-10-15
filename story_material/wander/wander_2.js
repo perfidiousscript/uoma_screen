@@ -5,7 +5,7 @@ export const wander_2 = {
         ["I was standing outside my workspace."],
         ["The Walkie-Talkie crackled:"],
         [
-          "This is James, I'm at the School now, heading North to their A-frame."
+          "'This is James, I`m at the School now, heading North to their A-frame.'"
         ],
         [
           "The second voice came on 'This is Bob. I'm at the NorthWest A-Frames, heading NorthEast to the Garden.'"
@@ -18,7 +18,7 @@ export const wander_2 = {
         },
         {
           text: "(S) I walked to my own A-frame.",
-          id: { part: "wander_2", area: "foundByJames" }
+          id: { part: "found" }
         },
         {
           text: "(E) I walked to the Garden.",
@@ -61,7 +61,7 @@ export const wander_2 = {
           "This is James, I'm at the North-East A-Frames now, heading South-West to the Path."
         ],
         [
-          "The second voice came on 'This is Bob. I`m at the North-West corner, heading over to the Garden.'"
+          'The second voice came on "This is Bob. I`m at Seps place, heading to the Meditation Hall."'
         ]
       ],
       choices: [
@@ -121,13 +121,13 @@ export const wander_2 = {
       choices: [
         {
           text: "(C) I waited outside my A-Frame",
-          id: { part: "foundByJames" }
+          id: { part: "found" }
         },
         {
           text: "(N) I walked to my studio.",
           id: { part: "wander_2", area: "studio", time: "2" }
         },
-        { text: "(S) I walked to the school", id: { part: "foundByJames" } },
+        { text: "(S) I walked to the school", id: { part: "found" } },
         {
           text: "(E) I walked to Sep`s lodging`s.",
           id: { part: "wander_2", area: "seps", time: "2" }
@@ -330,7 +330,7 @@ export const wander_2 = {
       choices: [
         {
           text: "(C) I waited in the Garden.",
-          id: { part: "foundByBob" }
+          id: { part: "found" }
         },
         {
           text: "(N) I walked to the North Plot of the Garden.",
@@ -341,7 +341,7 @@ export const wander_2 = {
           id: { part: "wander_2", area: "seps", time: "2" }
         },
         {
-          text: "I walked to my studio.",
+          text: "(E) I walked to my studio.",
           id: { part: "wander_2", area: "studio", time: "2" }
         }
       ]
@@ -371,7 +371,7 @@ export const wander_2 = {
           id: { part: "wander_2", area: "seps", time: "4" }
         },
         {
-          text: "I walked to my studio.",
+          text: "(E) I walked to my studio.",
           id: { part: "wander_2", area: "studio", time: "4" }
         }
       ]
@@ -613,7 +613,8 @@ export const wander_2 = {
         ["The Walkie-Talkie crackled:"],
         [
           '"This is James, No sign of them at their A-Frame. Heading to the North-East A-Frames now."'
-        ][
+        ],
+        [
           'The second voice came on "This is Bob. I`m at the Garden now, heading South to Sep`s cabin."'
         ]
       ],
@@ -640,7 +641,8 @@ export const wander_2 = {
         ["The walkie-talkie crackled:"],
         [
           '"This is James. At the North-East A-frames. Heading South-West to the Path."'
-        ][
+        ],
+        [
           'The second voice came on "This is Bob. I`m at Sep`s place. Heading South-West back to the Meditation Hall."'
         ]
       ],
@@ -694,8 +696,8 @@ export const wander_2 = {
         [
           "I stood outside the meditation hall. The building was lit up and filled with people preparing for Sep's talk."
         ],
+        ["The lights were on and I could see people packed inside."],
         ["I could see Bob`s flashlight scanning the A-Frames to the North."],
-        ["The lights were on and I could see many bodies inside."],
         ["The walkie-talkie crackled:"],
         [
           '"This is James. I`m at the School now. Heading North to their A-Frame."'
@@ -719,7 +721,7 @@ export const wander_2 = {
         },
         {
           text: "(S) I walked to the Path",
-          id: { part: "wander_2", area: "pathShW", time: "2" }
+          id: { part: "wander_2", area: "pathShW", time: "0" }
         }
       ]
     },
@@ -751,7 +753,7 @@ export const wander_2 = {
         },
         {
           text: "(S) I walked to the Path",
-          id: { part: "wander_2", area: "pathShW", time: "3" }
+          id: { part: "wander_2", area: "pathShW", time: "0" }
         }
       ]
     },
@@ -759,10 +761,12 @@ export const wander_2 = {
       text: [
         [
           "I stood outside the meditation hall. The building was lit up and filled with people preparing for Sep`s talk."
-        ]["The walkie-talkie crackled:"],
+        ],
+        ["The walkie-talkie crackled:"],
         [
           '"This is James. At the North-East A-frames. Heading South-West to the Path."'
-        ][
+        ],
+        [
           'The second voice came on "This is Bob. I`m at Sep`s place. Heading South-West back to the Meditation Hall."'
         ],
         [
@@ -784,7 +788,7 @@ export const wander_2 = {
         },
         {
           text: "(S) I walked to the Path",
-          id: { part: "wander_2", area: "pathShW", time: "4" }
+          id: { part: "wander_2", area: "pathShW", time: "0" }
         }
       ]
     }
@@ -903,26 +907,330 @@ export const wander_2 = {
           'The second voice came on "This is Bob. I`m at the North-West A-Frames, heading East to the Garden."'
         ]
       ],
-      choices: []
+      choices: [
+        {
+          text: "(C) I waited in the North-East A-Frames.",
+          id: { part: "wander_2", area: "aFrameNE", time: "2" }
+        },
+        {
+          text: "(N) I walked into the Forest",
+          id: { part: "wander_2", area: "forest", time: "2" }
+        },
+        {
+          text: "(S) I walked to the Path",
+          id: { part: "wander_2", area: "pathE", time: "2" }
+        },
+        {
+          text: "((W) I walked to the school",
+          id: { part: "wander_2", area: "school", time: "2" }
+        }
+      ]
     },
-    "2": { text: [], choices: [] },
-    "4": { text: [], choices: [] }
+    "2": {
+      text: [
+        [
+          "I stood within the group of A-Frames on the North-East corner of Uoma."
+        ],
+        ["The Walkie-Talkie crackled: "],
+        [
+          '"This is James, No sign of them at their A-Frame. Heading to the North-East A-Frames now."'
+        ],
+        [
+          'The second voice came on "This is Bob. I`m at the Garden now, heading South to Sep`s cabin."'
+        ],
+        ["I could see James' flashlight just to the West, coming toward me."]
+      ],
+      choices: [
+        {
+          text: "(C) I waited in the North-East A-Frames.",
+          id: { part: "found" }
+        },
+        {
+          text: "(N) I walked into the Forest",
+          id: { part: "wander_2", area: "forest", time: "3" }
+        },
+        {
+          text: "(S) I walked to the Path",
+          id: { part: "wander_2", area: "pathE", time: "3" }
+        },
+        {
+          text: "((W) I walked to the school",
+          id: { part: "wander_2", area: "school", time: "3" }
+        }
+      ]
+    },
+    "4": {
+      text: [
+        [
+          "I stood within the group of A-Frames on the North-East corner of Uoma."
+        ],
+        ["The walkie-talkie crackled:"],
+        [
+          "This is James. At the Path West of the Shrine. Heading North to the School."
+        ],
+        [
+          'The second voice came on "This is Bob. I`m at the Meditation Hall. Still no sign of them here. Heading North to the North-West A-frames."'
+        ]
+      ],
+      choices: [
+        {
+          text: "(C) I waited in the North-East A-Frames.",
+          id: { part: "wander_2", area: "aFrameNE", time: "1" }
+        },
+        {
+          text: "(N) I walked into the Forest",
+          id: { part: "wander_2", area: "forest", time: "1" }
+        },
+        {
+          text: "(S) I walked to the Path",
+          id: { part: "wander_2", area: "pathE", time: "1" }
+        },
+        {
+          text: "((W) I walked to the school",
+          id: { part: "wander_2", area: "school", time: "1" }
+        }
+      ]
+    }
+  },
+  pathE: {
+    "1": {
+      text: [
+        ["I stood on the East part of the Path."],
+        [
+          "Just a short stretch of Path lay between me and the entrance to the Shrine."
+        ],
+        ["The walkie-talkie crackled:"],
+        [
+          '"This is James. I`m at the School now. Heading North to their A-Frame."'
+        ],
+        [
+          'The second voice came on "This is Bob. I`m at the North-West A-Frames, heading East to the Garden."'
+        ]
+      ],
+      choices: [
+        {
+          text: "(C) I waited on the Path",
+          id: { part: "wander_2", area: "pathE", time: "2" }
+        },
+        {
+          text: "(N) I walked North to the North-East A-Frames.",
+          id: { part: "wander_2", area: "aFrameNE", time: "2" }
+        },
+        {
+          text: "(W) I walked on the Path toward the Shrine.",
+          id: { part: "wander_2", area: "pathShE", time: "2" }
+        }
+      ]
+    },
+    "2": {
+      text: [
+        ["I stood on the East part of the Path."],
+        ["The Walkie-Talkie crackled: "],
+        [
+          '"This is James, No sign of them at their A-Frame. Heading to the North-East A-Frames now."'
+        ],
+        [
+          'The second voice came on "This is Bob. I`m at the Garden now, heading South to Sep`s cabin."'
+        ]
+      ],
+      choices: [
+        {
+          text: "(C) I waited on the Path",
+          id: { part: "wander_2", area: "pathE", time: "3" }
+        },
+        {
+          text: "(N) I walked North to the North-East A-Frames.",
+          id: { part: "found" }
+        },
+        {
+          text: "(W) I walked on the Path toward the Shrine.",
+          id: { part: "wander_2", area: "pathShE", time: "3" }
+        }
+      ]
+    },
+    "3": {
+      text: [
+        ["I stood on the East part of the Path."],
+        ["I could see a flashlight in the A-Frames just to the North."],
+        ["The walkie-talkie crackled:"],
+        [
+          '"This is James. At the North-East A-frames. Heading South-West toward the shrine on the Path."'
+        ],
+        [
+          'The second voice came on "This is Bob. I`m at Sep`s place. Heading South-West back to the Meditation Hall."'
+        ]
+      ],
+      choices: [
+        {
+          text: "(C) I waited on the Path",
+          id: { part: "wander_2", area: "pathE", time: "4" }
+        },
+        {
+          text: "(N) I walked North to the North-East A-Frames.",
+          id: { part: "found" }
+        },
+        {
+          text: "(W) I walked on the Path toward the Shrine.",
+          id: { part: "found" }
+        }
+      ]
+    },
+    "4": {
+      text: [
+        ["I stood on the East part of the Path."],
+        [
+          "I saw James walking out of the A-Frames onto the Path and I ducked out of view."
+        ],
+        ["The walkie-talkie crackled:"],
+        [
+          '"This is James. At the Path just East of the Shrine. Heading North to the School."'
+        ],
+        [
+          'The second voice came on "This is Bob. I`m at the Meditation Hall. Still no sign of them here. Heading North to the North-West A-frames."'
+        ]
+      ],
+      choices: [
+        {
+          text: "(C) I waited on the Path",
+          id: { part: "wander_2", area: "pathE", time: "2" }
+        },
+        {
+          text: "(N) I walked North to the North-East A-Frames.",
+          id: { part: "wander_2", area: "aFrameNE", time: "2" }
+        },
+        {
+          text: "(W) I walked on the Path toward the Shrine.",
+          id: { part: "wander_2", area: "pathShE", time: "2" }
+        }
+      ]
+    }
+  },
+  pathShE: {
+    "1": {
+      text: [
+        [
+          "I stood on the Path just East of the Shrine, the entrance within view."
+        ],
+        ["The walkie-talkie crackled:"],
+        [
+          '"This is James. I`m at the School now. Heading North to their A-Frame."'
+        ][
+          'The second voice came on "This is Bob. I`m at the North-West A-Frames, heading East to the Garden."	'
+        ]
+      ],
+      choices: [
+        {
+          text: "(C) I waited on the Path",
+          id: { part: "wander_2", area: "pathShE", time: "2" }
+        },
+        {
+          text: "(N) I walked North to the School",
+          id: { part: "wander_2", area: "school", time: "2" }
+        },
+        {
+          text: "(W) I went to the the Shrine.",
+          id: { part: "shrine_1" }
+        }
+      ]
+    },
+    "2": {
+      text: [
+        [
+          "I stood on the Path just East of the Shrine, the entrance within view."
+        ],
+        ["The Walkie-Talkie crackled: "],
+        [
+          '"This is James, No sign of them at their A-Frame. Heading to the North-East A-Frames now."'
+        ],
+        [
+          'The second voice came on "This is Bob. I`m at the Garden now, heading South to Sep`s cabin."'
+        ]
+      ],
+      choices: [
+        {
+          text: "(C) I waited on the Path",
+          id: { part: "wander_2", area: "pathShE", time: "3" }
+        },
+        {
+          text: "(N) I walked North to the School",
+          id: { part: "wander_2", area: "school", time: "3" }
+        },
+        {
+          text: "(W) I went to the the Shrine.",
+          id: { part: "shrine_1" }
+        }
+      ]
+    },
+    "3": {
+      text: [
+        [
+          "I stood on the Path just East of the Shrine, its entrance just within view."
+        ],
+        ["The walkie-talkie crackled:"],
+        [
+          '"This is James. At the North-East A-frames. Heading South-West to the Path."'
+        ],
+        [
+          'The second voice came on "This is Bob. I`m at Sep`s place. Heading South-West back to the Meditation Hall."'
+        ],
+        ["A flashlight beam was coming out of the A-Frames toward me."]
+      ],
+      choices: [
+        {
+          text: "(C) I waited on the Path",
+          id: { part: "wander_2", area: "pathShE", time: "found" }
+        },
+        {
+          text: "(N) I walked North to the School",
+          id: { part: "wander_2", area: "school", time: "4" }
+        },
+        {
+          text: "(W) I went to the the Shrine.",
+          id: { part: "shrine_1" }
+        }
+      ]
+    }
+  },
+  pathShW: {
+    "0": {
+      text: [
+        ["I stood on the Path just West of the Shrine."],
+        ["Its entrance just within view."],
+        ["With no one around I could easily slip in and check it out."]
+      ],
+      choices: [
+        {
+          text: "(C) I stayed to the Path",
+          id: { part: "wander_2", area: "pathShW", time: "0" }
+        },
+        {
+          text: "(N) I went to the Meditation Hall.",
+          id: { part: "wander_2", area: "meditation", time: "1" }
+        },
+        {
+          text: "(E) I went to the the Shrine.",
+          id: { part: "shrine_1" }
+        }
+      ]
+    }
   }
 };
 
 export const found = {
-  text: [
-    ["A flash light beam came into view."],
-    ['"You heading to Sep`s talk?"'],
-    ['"Yeah."'],
-    ['"Found `em, He said into the walkie-talkie,"'],
-    ['"Heading over to the Meditation hall now."']
-  ],
-  choices: [
-    {
-      text:
-        "I walked over to the Meditation Hall. Being followed me I had no other choice.",
-      id: { part: "20a", effectType: "trustDown" }
-    }
-  ]
+  "0": {
+    text: [
+      ["A flashlight beam came into view."],
+      ['"You heading to Sep`s talk?"'],
+      ['"Yeah."I said, embarassed.'],
+      ['"Found `em," He said into the walkie-talkie,'],
+      ['"We`re Heading over to the Meditation hall now."']
+    ],
+    choices: [
+      {
+        text:
+          "I walked over to the Meditation Hall. Being followed, I had no other choice.",
+        id: { part: "20a", effectType: "trustDown" }
+      }
+    ]
+  }
 };
