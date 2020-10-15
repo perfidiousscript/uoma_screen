@@ -86,6 +86,7 @@ export default function Story() {
     if (currentPart.match(/wander/)) {
       setArea(e.target.dataset.area);
       setTime(e.target.dataset.time);
+      setCurrentSubPart(null);
       cookieCutter.set("area", e.target.dataset.area);
       cookieCutter.set("time", e.target.dataset.time);
       setCurrentPosition(story_json[currentPart][area][time]);
@@ -120,7 +121,7 @@ export default function Story() {
   }
 
   function printText(text) {
-    if (textArray.length < 0) {
+    if (textArray.length > 0) {
       if (textArrayIndex <= textArray.length) {
         if (text.length < textArray[textArrayIndex][0].length) {
           let jitter = 20 + Math.random() * 100;
@@ -248,8 +249,8 @@ export default function Story() {
         story_json[currentPart][readThroughNumber][currentSubPart].choices
       );
     }
-    readThroughNumber && textArray && printText(shownText);
-  }, [readThroughNumber, shownText]);
+    printText(shownText);
+  }, [readThroughNumber, textArray, shownText]);
 
   return (
     <>
