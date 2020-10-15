@@ -3,13 +3,14 @@ export const twenty = {
     a: { text: [], choices: [] },
     b: {
       text: [
+        ["Evening was falling."],
         [
-          "Evening was falling. Everyone had gone straight from the dining hall to the meditation hall and Uoma was quiet."
+          "Everyone had gone straight from the dining hall to the meditation hall and Uoma was quiet."
         ],
         [
-          "I passed the shrine. Someone had cleaned up the pile of ash and the door stood bare and strange looking without it."
+          "I passed the shrine. Someone had cleaned up the pile of ash and the door stood bare and strange without it."
         ],
-        ["I was just passing the School when I heard a voice behind me. "],
+        ["I was passing the School when I heard a voice behind me. "],
         ['"Where are you headed?"'],
         [
           "I turned to find James standing there with a flashlight and a walkie-talkie."
@@ -19,7 +20,7 @@ export const twenty = {
         [
           '"Sep`s giving an important talk right now, you really should be there."'
         ],
-        ['"I know. I1ll be quick."'],
+        ['"I know. I`ll be quick."'],
         ["James nodded, and said something into his walkie-talkie."]
       ],
       choices: [
