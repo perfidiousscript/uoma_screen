@@ -112,7 +112,7 @@ export const wander_2 = {
         ["I was standing outside of my A-Frame."],
         ["The walkie-talkie crackled:"],
         [
-          '"This is James. I`m at the School now. Heading North to their A-Frame now."'
+          '"This is James. I`m at the School now. Heading North to their A-Frame."'
         ],
         [
           'The second voice came on "This is Bob. I`m at the NorthWest A-Frames, heading East to the Garden."'
@@ -1109,7 +1109,7 @@ export const wander_2 = {
     "1": {
       text: [
         [
-          "I stood on the Path just East of the Shrine, the entrance within view."
+          "I stood on the Path just East of the Shrine, its entrance within view."
         ],
         ["The walkie-talkie crackled:"],
         [
@@ -1136,7 +1136,7 @@ export const wander_2 = {
     "2": {
       text: [
         [
-          "I stood on the Path just East of the Shrine, the entrance within view."
+          "I stood on the Path just East of the Shrine, its entrance within view."
         ],
         ["The Walkie-Talkie crackled: "],
         [

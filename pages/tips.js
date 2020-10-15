@@ -16,21 +16,20 @@ export default function Tips() {
       <div className="text">
         <p>Uoma is a work of interactive fiction.</p>
         <p>
-          As this is not a game, there is no objective aside from exploring and
-          experiencing the world of Uoma.
-        </p>
-        <p>
           The reader's choices affect the path and outcome of the story. The
           work considers ideas of agency, the boundaries of art and technology,
           and eternal return.
         </p>
         <p>
+          As this is not a game, there is no objective aside from exploring and
+          experiencing the world of Uoma.
+        </p>
+        <p>
           Progress will be recorded automatically. You may close the story and
           return to it at any time to find yourself right where you left off.
         </p>
-        <p>
-          If you believe the story has ended, it has most likely just begun.
-        </p>
+        <p>Life in Uoma is governed by forces distant and ineffable.</p>
+        <p>Death in Uoma is only a form of return.</p>
       </div>
       <div className="choices">
         <Link href="/">

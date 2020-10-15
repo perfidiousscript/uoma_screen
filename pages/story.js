@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import styles from "../styles/Home.module.css";
 import { story_json } from "../story_material/story.js";
@@ -6,7 +7,7 @@ import cookieCutter from "cookie-cutter";
 
 export default function Story() {
   var [currentPart, setPart] = useState("wander_2");
-  var [area, setArea] = useState("studio");
+  var [area, setArea] = useState("aFrameNar");
   var [time, setTime] = useState(1);
   var [readThroughNumber, setReadThroughNumber] = useState(null);
   var [currentPosition, setCurrentPosition] = useState(null);
@@ -59,9 +60,12 @@ export default function Story() {
 
   function selectChoice(e) {
     setPart(e.target.dataset.part);
+    cookieCutter.set("part", e.target.dataset.part);
     if (currentPart.match(/wander/)) {
       setArea(e.target.dataset.area);
       setTime(e.target.dataset.time);
+      cookieCutter.set("area", e.target.dataset.area);
+      cookieCutter.set("time", e.target.dataset.time);
     }
     enactEffect(e.target.dataset.effecttype);
     if (currentPart.match(/wander/)) {
@@ -69,6 +73,7 @@ export default function Story() {
     } else {
       setCurrentPosition(story_json[currentPart][readThroughNumber]);
     }
+
     setTextArray(currentPosition.text);
     setChoices(currentPosition.choices);
     advanceLine();
@@ -127,6 +132,18 @@ export default function Story() {
     }
   }
 
+  function checkActive(activeHash) {
+    if (activeHash) {
+      if (activeHash.variable === "insanity") {
+        if (activeHash.type === "gt") {
+          insanity >= activeHash.value;
+        }
+      }
+    } else {
+      return true;
+    }
+  }
+
   function generateChoices() {
     var compiledChoices = [];
     var choicesArray = [];
@@ -136,26 +153,14 @@ export default function Story() {
       choicesArray = choices;
     }
 
-    function checkActive(activeHash) {
-      if (activeHash) {
-        if (activeHash.variable === "insanity") {
-          if (activeHash.type === "gt") {
-            insanity >= activeHash.value;
-          }
-        }
-      } else {
-        return true;
-      }
-    }
-
-    choicesArray.map(function(choice) {
+    choicesArray.map(function(choice, index) {
       if (checkActive(choice.active)) {
         compiledChoices.push(
           <div
             onMouseEnter={selectedBackground}
             onMouseLeave={unselectedBackground}
             onClick={selectChoice}
-            key={choice.id.part + choice.id.area}
+            key={index}
             className="activeChoice"
             data-part={choice.id.part}
             data-area={choice.id.area}
@@ -183,6 +188,16 @@ export default function Story() {
       setReadThroughNumber(0);
       cookieCutter.set("readThroughNumber", 0);
     }
+    if (cookieCutter.get("part")) {
+      setPart(cookieCutter.get("part"));
+      if (currentPart.match(/wander/)) {
+        setArea(cookieCutter.get("area"));
+        setTime(cookieCutter.get("time"));
+      } else {
+        cookieCutter.delete("area");
+        cookieCutter.delete("time");
+      }
+    }
   }
 
   useEffect(() => {
@@ -207,6 +222,16 @@ export default function Story() {
 
   return (
     <>
+      <Link href="/map">
+        <span
+          onMouseEnter={selectedBackground}
+          onMouseLeave={unselectedBackground}
+          key="start"
+          className="activeChoice"
+        >
+          Map
+        </span>
+      </Link>
       <div className="text">
         <p className="textLine lastLine"> {shownText_4} </p>
         <p className="textLine lastLine"> {shownText_3} </p>
@@ -215,6 +240,7 @@ export default function Story() {
         <span className="displayCarat">> </span>
         <p className="textLine currentLine"> {shownText} </p>
       </div>
+
       <div className="choices" style={readThroughNumber && displayChoices()}>
         {readThroughNumber && generateChoices()}
       </div>

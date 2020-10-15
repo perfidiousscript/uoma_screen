@@ -18,16 +18,27 @@ export default function Map() {
         {`
                                 N
                               Forest
-                Forest      |Garden(N)|	 Forest
-                Forest      |Garden(S)||  STUDIO  |  Forest
-      Forest    A-frame(A)  |__Sep's__| A-frame(Nar) Forest
-      Forest   | Meditation||         ||  School  |  A-frame(B)    Plain
-W      PATH        PATH     |  Shrine |    PATH        PATH         PATH    E
-      Forest   |   Admin   ||_________||  Dining  |  A-frame(C)    Plain
-      Forest    A-frame(D)  | Medical || Kitchen  |  A-frame(E)    Forest
-      Forest    |Orchard(W)|Orchard(N)||Orchard(E)|  Forest
-                  Forest   |Orchard(S)|   Forest
-                           |   Gate   |
+
+                Forest      |Garden(N) |	 Forest
+
+                Forest      |Garden(S) ||  STUDIO  |  Forest
+
+      Forest    NW A-frames |  Sep's   | Nar A-frame Forest
+                             __________
+      Forest   | Meditation||          ||  School  |  NE A-frames    Plain
+                            |          |
+W      PATH        PATH     I  Shrine  I    PATH        PATH         PATH    E
+                            |          |
+      Forest   |   Admin   ||__________||  Dining  |  E  A-frames    Plain
+
+      Forest    SW A-frames | Medical  || Kitchen  |  SE A-frames    Forest
+
+      Forest    |Orchard(W)|Orchard(N) ||Orchard(E)|  Forest
+
+                  Forest   |Orchard(S) |   Forest
+
+                           |   Gate    |
+
                                 S
       `}
       </pre>

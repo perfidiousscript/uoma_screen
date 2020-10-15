@@ -69,7 +69,7 @@ export default function Home() {
 
   function startText() {
     if (readThroughNumber) {
-      return readThroughNumber == 0 ? "Start" : "Continue";
+      return readThroughNumber == 0 ? "Start" : "Return";
     }
   }
 
