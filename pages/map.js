@@ -16,30 +16,30 @@ export default function Map() {
     <>
       <pre>
         {`
-                                N
-                              Forest
+                                 N
+                               Forest
 
-                Forest      |Garden(N) |	 Forest
+                Forest      | Garden(N) |	 Forest
 
-                Forest      |Garden(S) ||  STUDIO  |  Forest
+                Forest      | Garden(S) ||  STUDIO   |  Forest
 
-      Forest    NW A-frames |  Sep's   | Nar A-frame Forest
-                             __________
-      Forest   | Meditation||          ||  School  |  NE A-frames    Plain
-                            |          |
-W      PATH        PATH     I  Shrine  I    PATH        PATH         PATH    E
-                            |          |
-      Forest   |   Admin   ||__________||  Dining  |  E  A-frames    Plain
+      Forest    NW A-frames |   Sep's   ||Nar A-frame| Forest
+                             ___________
+      Forest   | Meditation||           ||  School   |  NE A-frames    Plain
+                            |           |
+W      PATH        PATH     I   Shrine  I    PATH        PATH         PATH    E
+                            |           |
+      Forest   |   Admin   ||___________||  Dining   |  E  A-frames    Plain
 
-      Forest    SW A-frames | Medical  || Kitchen  |  SE A-frames    Forest
+      Forest   |SW A-frames||  Medical  || Kitchen   |  SE A-frames    Forest
 
-      Forest    |Orchard(W)|Orchard(N) ||Orchard(E)|  Forest
+      Forest   | Orchard(W)|  Orchard(N) |Orchard(E) |  Forest
 
-                  Forest   |Orchard(S) |   Forest
+                  Forest   |  Orchard(S) |   Forest
 
-                           |   Gate    |
+                            |   Gate    |
 
-                                S
+                                 S
       `}
       </pre>
       <div className="choices">

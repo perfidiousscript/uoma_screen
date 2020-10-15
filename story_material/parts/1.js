@@ -1,4 +1,4 @@
-export const one_json = {
+export const one = {
   "0": {
     text: [
       [

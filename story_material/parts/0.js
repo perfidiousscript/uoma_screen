@@ -1,4 +1,4 @@
-export const zero_json = {
+export const zero = {
   "0": {
     text: [
       ["An Echo"],
@@ -12,7 +12,7 @@ export const zero_json = {
     choices: [
       {
         text: "I came here because...",
-        id: { part: "1" }
+        id: { part: "1", sub: "a" }
       }
     ]
   }

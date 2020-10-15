@@ -6,10 +6,11 @@ import { story_json } from "../story_material/story.js";
 import cookieCutter from "cookie-cutter";
 
 export default function Story() {
-  var [currentPart, setPart] = useState("wander_2");
-  var [area, setArea] = useState("aFrameNar");
-  var [time, setTime] = useState(1);
-  var [readThroughNumber, setReadThroughNumber] = useState(null);
+  var [currentPart, setPart] = useState("20");
+  var [currentSubPart, setSubPart] = useState("b");
+  var [area, setArea] = useState(null);
+  var [time, setTime] = useState(null);
+  var [readThroughNumber, setReadThroughNumber] = useState("0");
   var [currentPosition, setCurrentPosition] = useState(null);
   var [occupation, setOccupation] = useState(null);
   var [courage, setCourage] = useState(0);
@@ -35,44 +36,68 @@ export default function Story() {
     e.target.style.color = "chartreuse";
   }
 
+  function entropy() {
+    if (readThroughNumber < 3) {
+      cookieCutter.set("readThroughNumber", readThroughNumber + 1);
+    } else {
+      cookieCutter.set("readThroughNumber", 0);
+    }
+  }
+
   function enactEffect(effectType) {
-    switch (effectType) {
-      case "trustUp":
-        setTrust(trust + 1);
-        break;
-      case "trustDown":
-        setTrust(trust - 1);
-        break;
-      case "courageUp":
-        setCourage(courage + 1);
-        break;
-      case "trustDown":
-        setCourage(courage - 1);
-        break;
-      case "insanityUp":
-        setInsanity(insanity + 1);
-        break;
-      case "trustDown":
-        setInsanity(insanity - 1);
-        break;
+    for (var i = 0; i++; i == effectType.length - 1) {
+      switch (effectType[i]) {
+        case "trustUp":
+          setTrust(trust + 1);
+          break;
+        case "trustDown":
+          setTrust(trust - 1);
+          break;
+        case "courageUp":
+          setCourage(courage + 1);
+          break;
+        case "trustDown":
+          setCourage(courage - 1);
+          break;
+        case "insanityUp":
+          setInsanity(insanity + 1);
+          break;
+        case "trustDown":
+          setInsanity(insanity - 1);
+          break;
+        case "entropy":
+          entropy();
+          break;
+      }
     }
   }
 
   function selectChoice(e) {
     setPart(e.target.dataset.part);
+
     cookieCutter.set("part", e.target.dataset.part);
+
+    if (e.target.dataset.subPart) {
+      setSubPart(e.target.dataset.subPart);
+    } else {
+      setSubPart(null);
+    }
+
     if (currentPart.match(/wander/)) {
       setArea(e.target.dataset.area);
       setTime(e.target.dataset.time);
       cookieCutter.set("area", e.target.dataset.area);
       cookieCutter.set("time", e.target.dataset.time);
-    }
-    enactEffect(e.target.dataset.effecttype);
-    if (currentPart.match(/wander/)) {
       setCurrentPosition(story_json[currentPart][area][time]);
     } else {
-      setCurrentPosition(story_json[currentPart][readThroughNumber]);
+      if (currentSubPart) {
+        setCurrentPosition(story_json[currentPart][readThroughNumber][subpart]);
+      } else {
+        setCurrentPosition(story_json[currentPart][readThroughNumber]);
+      }
     }
+
+    enactEffect(e.target.dataset.effecttype);
 
     setTextArray(currentPosition.text);
     setChoices(currentPosition.choices);
@@ -88,23 +113,25 @@ export default function Story() {
 
   function storyPosition() {
     if (currentPart === "wander") {
-      story_json[currentPart][readThroughNumber][area];
+      story_json[currentPart][area][time];
     } else {
-      story_json[currentPart][readThroughNumber];
+      story_json[currentPart][readThroughNumber][currentSubPart];
     }
   }
 
   function printText(text) {
-    if (textArrayIndex <= textArray.length) {
-      if (text.length < textArray[textArrayIndex][0].length) {
-        let jitter = 20 + Math.random() * 100;
-        setTimeout(() => {
-          advanceText(text);
-        }, jitter);
-      } else if (textArrayIndex < textArray.length - 1) {
-        setTimeout(() => {
-          advanceLine();
-        }, 500);
+    if (textArray.length < 0) {
+      if (textArrayIndex <= textArray.length) {
+        if (text.length < textArray[textArrayIndex][0].length) {
+          let jitter = 20 + Math.random() * 100;
+          setTimeout(() => {
+            advanceText(text);
+          }, jitter);
+        } else if (textArrayIndex < textArray.length - 1) {
+          setTimeout(() => {
+            advanceLine();
+          }, 500);
+        }
       }
     }
   }
@@ -186,16 +213,13 @@ export default function Story() {
       setReadThroughNumber(cookieCutter.get("readThroughNumber"));
     } else {
       setReadThroughNumber(0);
-      cookieCutter.set("readThroughNumber", 0);
+      cookieCutter.set("readThroughNumber", "0");
     }
     if (cookieCutter.get("part")) {
       setPart(cookieCutter.get("part"));
       if (currentPart.match(/wander/)) {
         setArea(cookieCutter.get("area"));
         setTime(cookieCutter.get("time"));
-      } else {
-        cookieCutter.delete("area");
-        cookieCutter.delete("time");
       }
     }
   }
@@ -206,6 +230,7 @@ export default function Story() {
 
   useEffect(() => {
     console.log("currentPart:", currentPart);
+    console.log("currentSubPart:", currentSubPart);
     console.log("area:", area);
     console.log("time:", time);
     if (currentPart.match(/wander/)) {
@@ -213,11 +238,17 @@ export default function Story() {
       setTextArray(story_json[currentPart][area][time].text);
       setChoices(story_json[currentPart][area][time].choices);
     } else {
-      setCurrentPosition(story_json[currentPart][readThroughNumber]);
-      setTextArray(story_json[currentPart][readThroughNumber].text);
-      setChoices(story_json[currentPart][readThroughNumber].choices);
+      setCurrentPosition(
+        story_json[currentPart][readThroughNumber][currentSubPart]
+      );
+      setTextArray(
+        story_json[currentPart][readThroughNumber][currentSubPart].text
+      );
+      setChoices(
+        story_json[currentPart][readThroughNumber][currentSubPart].choices
+      );
     }
-    readThroughNumber && printText(shownText);
+    readThroughNumber && textArray && printText(shownText);
   }, [readThroughNumber, shownText]);
 
   return (

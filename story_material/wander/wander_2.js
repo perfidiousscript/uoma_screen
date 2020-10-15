@@ -107,6 +107,41 @@ export const wander_2 = {
     }
   },
   aFrameNar: {
+    "0": {
+      text: [
+        [
+          "As I was walking over to my A-Frame I saw a walkie-talkie sitting on the ledge of a window. "
+        ],
+        ["One of the guards must have forgotten it there."],
+        ["I picked it up quickly and then want in to my A-Frame."],
+        ["I grabbed a sweater, then sat for a moment on my bed, in the dark."],
+        [
+          "The prospect of listening to Sep justify his actions made me uneasy."
+        ],
+        ["I lie for a minute in the dark, thinking of what to do."],
+        [
+          "It occurred to me that, with no one around, I might be able to get into the Shrine and see what was inside."
+        ],
+        ["The walkie-talkie crackled to life:"],
+        [
+          '"Hey Bob, we had a straggler out here a minute ago, that new blood that tangled with the Ash-Burner earlier. Have they come back to the meditation hall?"'
+        ],
+        ["I listened in."],
+        [
+          'A male voice came on and said, "I`m over at the meditation hall now. Haven`t seen `em come in."'
+        ],
+        ['"Okay," James said,'],
+        [
+          '"I`m on the Path just east of the Shirne. Their A-Frame is a bit north of here so I`m going to go check it out.'
+        ]["My heart started pounding."]
+      ],
+      choices: [
+        {
+          text: "I went outside of my A-frame.",
+          id: { part: "wander_2", area: "aFrameNar", time: "1" }
+        }
+      ]
+    },
     "1": {
       text: [
         ["I was standing outside of my A-Frame."],
