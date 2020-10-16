@@ -39,14 +39,6 @@ export default function Home() {
     e.target.style.color = "chartreuse";
   }
 
-  function updateReadThroughNumber() {
-    if (!cookieCutter.get("readThroughNumber")) {
-      cookieCutter.set("0");
-    }
-    let rT = cookieCutter.get("readThroughNumber");
-    setReadThroughNumber(rT);
-  }
-
   function changeLogo() {
     if (!isGlitching) {
       setIsGlitching(true);
@@ -74,10 +66,6 @@ export default function Home() {
       return "Start";
     }
   }
-
-  useEffect(() => {
-    updateReadThroughNumber();
-  }, [readThroughNumber]);
 
   useEffect(() => {
     if (readThroughNumber == 1) {

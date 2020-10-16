@@ -28,6 +28,10 @@ a {
   padding: 0 0 0 1%;
 }
 
+.invisible {
+  display: none;
+}
+
 .activeChoice {
   padding: 1%;
   border: 1px solid black;

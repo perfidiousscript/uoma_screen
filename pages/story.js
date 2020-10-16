@@ -124,6 +124,8 @@ export default function Story() {
     }
   }
 
+  // We only want to display the choices when the last character of the
+  // last element of the text array has been printed.
   function displayChoices() {
     if (textArray[textArrayIndex]) {
       if (
@@ -147,16 +149,18 @@ export default function Story() {
     }
   }
 
+  function mapVisible() {
+    if (currentPart && currentPart.match(/wander/)) {
+      return "activeChoice";
+    } else {
+      return "invisible";
+    }
+  }
+
   function generateChoices() {
     var compiledChoices = [];
-    var choicesArray = [];
-    if (currentPart === "1") {
-      choicesArray.push(choices[readThroughNumber]);
-    } else {
-      choicesArray = choices;
-    }
 
-    choicesArray.map(function(choice, index) {
+    choices.map(function(choice, index) {
       if (checkActive(choice.active)) {
         compiledChoices.push(
           <div
@@ -193,6 +197,9 @@ export default function Story() {
     if (cookieCutter.get("part")) {
       setCurrentPart(cookieCutter.get("part"));
       setCurrentSubPart(cookieCutter.get("subPart"));
+    } else {
+      setCurrentPart("0");
+      setCurrentSubPart("a");
     }
     setSelectLock(false);
   }, []);
@@ -203,6 +210,9 @@ export default function Story() {
 
   useEffect(() => {
     if (!selectLock) {
+      console.log("currentPart:", currentPart);
+      console.log("readThroughNumber:", readThroughNumber);
+      console.log("currentSubPart:", currentSubPart);
       setTextArray(
         story_json[currentPart][readThroughNumber][currentSubPart].text
       );
@@ -219,7 +229,7 @@ export default function Story() {
           onMouseEnter={selectedBackground}
           onMouseLeave={unselectedBackground}
           key="start"
-          className="activeChoice"
+          className={mapVisible()}
         >
           Map
         </span>
@@ -233,8 +243,8 @@ export default function Story() {
         <p className="textLine currentLine"> {shownText} </p>
       </div>
 
-      <div className="choices" style={readThroughNumber && displayChoices()}>
-        {readThroughNumber && generateChoices()}
+      <div className="choices" style={displayChoices()}>
+        {generateChoices()}
       </div>
     </>
   );
