@@ -6,6 +6,7 @@ import { story_json } from "../story_material/story.js";
 import cookieCutter from "cookie-cutter";
 
 export default function Story() {
+  var [selectLock, setSelectLock] = useState(false);
   var [currentPart, setPart] = useState("20");
   var [currentSubPart, setSubPart] = useState("b");
   var [area, setArea] = useState(null);
@@ -73,8 +74,9 @@ export default function Story() {
   }
 
   function selectChoice(e) {
+    setSelectLock(true);
+    console.log("selectLock:", selectLock);
     setPart(e.target.dataset.part);
-
     cookieCutter.set("part", e.target.dataset.part);
 
     if (e.target.dataset.subPart) {
@@ -92,7 +94,9 @@ export default function Story() {
       setCurrentPosition(story_json[currentPart][area][time]);
     } else {
       if (currentSubPart) {
-        setCurrentPosition(story_json[currentPart][readThroughNumber][subpart]);
+        setCurrentPosition(
+          story_json[currentPart][readThroughNumber][currentSubPart]
+        );
       } else {
         setCurrentPosition(story_json[currentPart][readThroughNumber]);
       }
@@ -104,6 +108,7 @@ export default function Story() {
     setChoices(currentPosition.choices);
     advanceLine();
     setTextArrayIndex(0);
+    setSelectLock(false);
     printText("");
   }
 
@@ -234,23 +239,25 @@ export default function Story() {
     console.log("currentSubPart:", currentSubPart);
     console.log("area:", area);
     console.log("time:", time);
-    if (currentPart.match(/wander/)) {
-      setCurrentPosition(story_json[currentPart][area][time]);
-      setTextArray(story_json[currentPart][area][time].text);
-      setChoices(story_json[currentPart][area][time].choices);
-    } else {
-      setCurrentPosition(
-        story_json[currentPart][readThroughNumber][currentSubPart]
-      );
-      setTextArray(
-        story_json[currentPart][readThroughNumber][currentSubPart].text
-      );
-      setChoices(
-        story_json[currentPart][readThroughNumber][currentSubPart].choices
-      );
+    if (!selectLock) {
+      if (currentPart.match(/wander/)) {
+        setCurrentPosition(story_json[currentPart][area][time]);
+        setTextArray(story_json[currentPart][area][time].text);
+        setChoices(story_json[currentPart][area][time].choices);
+      } else {
+        setCurrentPosition(
+          story_json[currentPart][readThroughNumber][currentSubPart]
+        );
+        setTextArray(
+          story_json[currentPart][readThroughNumber][currentSubPart].text
+        );
+        setChoices(
+          story_json[currentPart][readThroughNumber][currentSubPart].choices
+        );
+      }
+      printText(shownText);
     }
-    printText(shownText);
-  }, [readThroughNumber, textArray, shownText]);
+  }, [readThroughNumber, textArray, shownText, currentPart]);
 
   return (
     <>

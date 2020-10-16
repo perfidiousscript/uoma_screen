@@ -5,10 +5,10 @@ export const twenty = {
       text: [
         ["Evening was falling."],
         [
-          "Everyone had gone straight from the dining hall to the meditation hall and Uoma was quiet."
+          "Everyone had gone straight to the meditation hall and Uoma was quiet."
         ],
         [
-          "I passed the shrine. Someone had cleaned up the pile of ash and the door stood bare and strange without it."
+          "I passed the shrine. Someone had cleaned up the pile of ash and the door stood bare and strange without its handle."
         ],
         ["I was passing the School when I heard a voice behind me. "],
         ['"Where are you headed?"'],
@@ -16,7 +16,7 @@ export const twenty = {
           "I turned to find James standing there with a flashlight and a walkie-talkie."
         ],
         ['"I was just going to run over to my A-Frame to pick up a sweater."'],
-        ["James stared at me, hard, for a moment."],
+        ["James stared at me, hard."],
         [
           '"Sep`s giving an important talk right now, you really should be there."'
         ],
