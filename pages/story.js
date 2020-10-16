@@ -6,10 +6,10 @@ import { story_json } from "../story_material/story.js";
 import cookieCutter from "cookie-cutter";
 
 export default function Story() {
-  var [selectLock, setSelectLock] = useState(false);
-  var [currentPart, setCurrentPart] = useState("20");
-  var [currentSubPart, setSubPart] = useState("b");
-  var [readThroughNumber, setReadThroughNumber] = useState("0");
+  var [selectLock, setSelectLock] = useState(true);
+  var [currentPart, setCurrentPart] = useState(null);
+  var [currentSubPart, setCurrentSubPart] = useState(null);
+  var [readThroughNumber, setReadThroughNumber] = useState(null);
 
   var [occupation, setOccupation] = useState(null);
   var [courage, setCourage] = useState(0);
@@ -72,10 +72,8 @@ export default function Story() {
   }
 
   function selectChoice(e) {
-    setSelectLock(true);
-
     setCurrentPart(e.target.dataset.part);
-    setSubPart(e.target.dataset.sub);
+    setCurrentSubPart(e.target.dataset.sub);
     cookieCutter.set("part", e.target.dataset.part);
     cookieCutter.set("subPart", e.target.dataset.sub);
 
@@ -89,7 +87,6 @@ export default function Story() {
     );
     advanceLine();
     setTextArrayIndex(0);
-    setSelectLock(false);
     printText("");
   }
 
@@ -186,43 +183,34 @@ export default function Story() {
     return compiledChoices;
   }
 
-  function checkCookies() {
+  useEffect(() => {
     if (cookieCutter.get("readThroughNumber")) {
       setReadThroughNumber(cookieCutter.get("readThroughNumber"));
     } else {
-      setReadThroughNumber(0);
+      setReadThroughNumber("0");
       cookieCutter.set("readThroughNumber", "0");
     }
     if (cookieCutter.get("part")) {
       setCurrentPart(cookieCutter.get("part"));
+      setCurrentSubPart(cookieCutter.get("subPart"));
     }
-  }
-
-  useEffect(() => {
-    checkCookies();
+    setSelectLock(false);
   }, []);
 
   useEffect(() => {
     printText(shownText);
-  }, [textArray, shownText]);
+  }, [textArray, shownText, currentPart]);
 
-  useEffect(
-    () => {
-      if (!selectLock) {
-        console.log("currentPart:", currentPart);
-        console.log("readThroughNumber:", readThroughNumber);
-        console.log("currentSubPart:", currentSubPart);
-        setTextArray(
-          story_json[currentPart][readThroughNumber][currentSubPart].text
-        );
-        setChoices(
-          story_json[currentPart][readThroughNumber][currentSubPart].choices
-        );
-      }
-    },
-    [currentPart],
-    [currentSubPart]
-  );
+  useEffect(() => {
+    if (!selectLock) {
+      setTextArray(
+        story_json[currentPart][readThroughNumber][currentSubPart].text
+      );
+      setChoices(
+        story_json[currentPart][readThroughNumber][currentSubPart].choices
+      );
+    }
+  }, [currentPart, currentSubPart]);
 
   return (
     <>

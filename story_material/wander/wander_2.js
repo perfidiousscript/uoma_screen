@@ -116,7 +116,6 @@ export const wander_2 = {
         [
           "The prospect of listening to Sep justify his actions made me uneasy."
         ],
-        ["I lay for a minute in the dark, thinking."],
         [
           "It occurred to me that, with no one around, I might be able to get into the Shrine and see what was inside."
         ],
@@ -131,7 +130,8 @@ export const wander_2 = {
         ['"Okay," James said,'],
         [
           '"I`m on the Path just east of the Shirne. Their A-Frame is a bit north of here so I`m going to go check it out.'
-        ]["My heart started pounding."]
+        ],
+        ["My heart started pounding."]
       ],
       choices: [
         {
@@ -1127,7 +1127,8 @@ export const wander_2 = {
         ["The walkie-talkie crackled:"],
         [
           '"This is James. I`m at the School now. Heading North to their A-Frame."'
-        ][
+        ],
+        [
           'The second voice came on "This is Bob. I`m at the North-West A-Frames, heading East to the Garden."	'
         ]
       ],
