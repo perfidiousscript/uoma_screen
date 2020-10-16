@@ -7,12 +7,10 @@ import cookieCutter from "cookie-cutter";
 
 export default function Story() {
   var [selectLock, setSelectLock] = useState(false);
-  var [currentPart, setPart] = useState("20");
+  var [currentPart, setCurrentPart] = useState("20");
   var [currentSubPart, setSubPart] = useState("b");
-  var [area, setArea] = useState(null);
-  var [time, setTime] = useState(null);
   var [readThroughNumber, setReadThroughNumber] = useState("0");
-  var [currentPosition, setCurrentPosition] = useState(null);
+
   var [occupation, setOccupation] = useState(null);
   var [courage, setCourage] = useState(0);
   var [insanity, setInsanity] = useState(0);
@@ -75,37 +73,20 @@ export default function Story() {
 
   function selectChoice(e) {
     setSelectLock(true);
-    console.log("selectLock:", selectLock);
-    setPart(e.target.dataset.part);
+
+    setCurrentPart(e.target.dataset.part);
+    setSubPart(e.target.dataset.sub);
     cookieCutter.set("part", e.target.dataset.part);
-
-    if (e.target.dataset.subPart) {
-      setSubPart(e.target.dataset.subPart);
-    } else {
-      setSubPart(null);
-    }
-
-    if (currentPart.match(/wander/)) {
-      setArea(e.target.dataset.area);
-      setTime(e.target.dataset.time);
-      setCurrentSubPart(null);
-      cookieCutter.set("area", e.target.dataset.area);
-      cookieCutter.set("time", e.target.dataset.time);
-      setCurrentPosition(story_json[currentPart][area][time]);
-    } else {
-      if (currentSubPart) {
-        setCurrentPosition(
-          story_json[currentPart][readThroughNumber][currentSubPart]
-        );
-      } else {
-        setCurrentPosition(story_json[currentPart][readThroughNumber]);
-      }
-    }
+    cookieCutter.set("subPart", e.target.dataset.sub);
 
     enactEffect(e.target.dataset.effecttype);
 
-    setTextArray(currentPosition.text);
-    setChoices(currentPosition.choices);
+    setTextArray(
+      story_json[currentPart][readThroughNumber][currentSubPart].text
+    );
+    setChoices(
+      story_json[currentPart][readThroughNumber][currentSubPart].choices
+    );
     advanceLine();
     setTextArrayIndex(0);
     setSelectLock(false);
@@ -115,14 +96,6 @@ export default function Story() {
   function advanceText(text) {
     let newText = textArray[textArrayIndex][0].slice(0, text.length + 1);
     setShownText(newText);
-  }
-
-  function storyPosition() {
-    if (currentPart === "wander") {
-      story_json[currentPart][area][time];
-    } else {
-      story_json[currentPart][readThroughNumber][currentSubPart];
-    }
   }
 
   function printText(text) {
@@ -196,8 +169,7 @@ export default function Story() {
             key={index}
             className="activeChoice"
             data-part={choice.id.part}
-            data-area={choice.id.area}
-            data-time={choice.id.time}
+            data-sub={choice.id.sub}
             data-effecttype={choice.effectType}
           >
             {choice.text}
@@ -222,32 +194,24 @@ export default function Story() {
       cookieCutter.set("readThroughNumber", "0");
     }
     if (cookieCutter.get("part")) {
-      setPart(cookieCutter.get("part"));
-      if (currentPart.match(/wander/)) {
-        setArea(cookieCutter.get("area"));
-        setTime(cookieCutter.get("time"));
-      }
+      setCurrentPart(cookieCutter.get("part"));
     }
   }
 
   useEffect(() => {
     checkCookies();
-  }, [readThroughNumber]);
+  }, []);
 
   useEffect(() => {
-    console.log("currentPart:", currentPart);
-    console.log("currentSubPart:", currentSubPart);
-    console.log("area:", area);
-    console.log("time:", time);
-    if (!selectLock) {
-      if (currentPart.match(/wander/)) {
-        setCurrentPosition(story_json[currentPart][area][time]);
-        setTextArray(story_json[currentPart][area][time].text);
-        setChoices(story_json[currentPart][area][time].choices);
-      } else {
-        setCurrentPosition(
-          story_json[currentPart][readThroughNumber][currentSubPart]
-        );
+    printText(shownText);
+  }, [textArray, shownText]);
+
+  useEffect(
+    () => {
+      if (!selectLock) {
+        console.log("currentPart:", currentPart);
+        console.log("readThroughNumber:", readThroughNumber);
+        console.log("currentSubPart:", currentSubPart);
         setTextArray(
           story_json[currentPart][readThroughNumber][currentSubPart].text
         );
@@ -255,9 +219,10 @@ export default function Story() {
           story_json[currentPart][readThroughNumber][currentSubPart].choices
         );
       }
-      printText(shownText);
-    }
-  }, [readThroughNumber, textArray, shownText, currentPart]);
+    },
+    [currentPart],
+    [currentSubPart]
+  );
 
   return (
     <>

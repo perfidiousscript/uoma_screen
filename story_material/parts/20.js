@@ -20,13 +20,13 @@ export const twenty = {
         [
           '"Sep`s giving an important talk right now, you really should be there."'
         ],
-        ['"I know. I`ll be quick."'],
+        ['"I`ll be quick."'],
         ["James nodded, and said something into his walkie-talkie."]
       ],
       choices: [
         {
           text: "I went to my A-Frame",
-          id: { part: "wander_2", area: "aFrameNar", time: "0" }
+          id: { part: "wander_2", sub: "aFrameNar_0" }
         }
       ]
     }
