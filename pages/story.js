@@ -11,6 +11,11 @@ export default function Story() {
   var [currentSubPart, setCurrentSubPart] = useState(null);
   var [readThroughNumber, setReadThroughNumber] = useState(null);
 
+  var [seenForest, setSeenForest] = useState(false);
+  var [seenOrchard, setSeenOrchard] = useState(false);
+  var [seenGarden, setSeenGarden] = useState(false);
+  var [seenSettlement, setSeenSettlement] = useState(false);
+
   var [occupation, setOccupation] = useState(null);
   var [courage, setCourage] = useState(0);
   var [insanity, setInsanity] = useState(0);
@@ -43,9 +48,10 @@ export default function Story() {
     }
   }
 
-  function enactEffect(effectType) {
-    for (var i = 0; i++; i == effectType.length - 1) {
-      switch (effectType[i]) {
+  function enactEffect(effects) {
+    let effectArray = effects.split(",");
+    effectArray.forEach(function(effect) {
+      switch (effect) {
         case "trustUp":
           setTrust(trust + 1);
           break;
@@ -64,11 +70,25 @@ export default function Story() {
         case "trustDown":
           setInsanity(insanity - 1);
           break;
+        case "seenForest":
+          console.log("hits forest");
+          setSeenForest(true);
+          break;
+        case "seenOrchard":
+          console.log("hits orchard");
+          setSeenOrchard(true);
+          break;
+        case "seenGarden":
+          setSeenGarden(true);
+          break;
+        case "seenSettlement":
+          setSeenSettlement(true);
+          break;
         case "entropy":
           entropy();
           break;
       }
-    }
+    });
   }
 
   function selectChoice(e) {
@@ -77,7 +97,7 @@ export default function Story() {
     cookieCutter.set("part", e.target.dataset.part);
     cookieCutter.set("subPart", e.target.dataset.sub);
 
-    enactEffect(e.target.dataset.effecttype);
+    enactEffect(e.target.dataset.effect);
 
     setTextArray(
       story_json[currentPart][readThroughNumber][currentSubPart].text
@@ -137,12 +157,21 @@ export default function Story() {
     }
   }
 
-  function checkActive(activeHash) {
-    if (activeHash) {
-      if (activeHash.variable === "insanity") {
-        if (activeHash.type === "gt") {
-          insanity >= activeHash.value;
-        }
+  function checkActive(activeVal) {
+    if (activeVal) {
+      switch (activeVal) {
+        case "orchard":
+          return !seenOrchard;
+          break;
+        case "forest":
+          return !seenForest;
+          break;
+        case "settlement":
+          return !seenSettlement;
+          break;
+        case "garden":
+          return !seenGarden;
+          break;
       }
     } else {
       return true;
@@ -171,14 +200,8 @@ export default function Story() {
             className="activeChoice"
             data-part={choice.id.part}
             data-sub={choice.id.sub}
-            data-effecttype={choice.effectType}
+            data-effect={choice.effect}
           >
-            {choice.text}
-          </div>
-        );
-      } else {
-        compiledChoices.push(
-          <div key={choice.id} className="inActiveChoice">
             {choice.text}
           </div>
         );
