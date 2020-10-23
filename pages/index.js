@@ -6,6 +6,7 @@ import packageJson from "../package.json";
 import styles from "../styles/Home.module.css";
 import cookieCutter from "cookie-cutter";
 import {
+  g_cross,
   uoma_logo,
   uoma_logo_corrupt_1,
   uoma_logo_corrupt_2,
@@ -78,6 +79,7 @@ export default function Home() {
   return (
     <>
       <div className="landingArt">
+        <pre className="gCross">{g_cross}</pre>
         <pre className="uomaAscii">{logo}</pre>
         <span className="versionNumber">patch {packageJson.version}</span>
         <p className="bottomBar">{`############################################################################################`}</p>

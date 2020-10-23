@@ -65,5 +65,12 @@ a {
 }
 
 .versionNumber {
+  display: block;
+}
+
+.gCross {
+  font-size: 7px;
   float: right;
+  transform: rotate(45deg);
+  margin: 1% 27% 0% 0;
 }
