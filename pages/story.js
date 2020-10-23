@@ -17,7 +17,7 @@ export default function Story() {
   var [seenGarden, setSeenGarden] = useState(false);
   var [seenSettlement, setSeenSettlement] = useState(false);
 
-  var [occupation, setOccupation] = useState(null);
+  var [sculptor, setSculptor] = useState(null);
   var [courage, setCourage] = useState(0);
   var [insanity, setInsanity] = useState(0);
   var [trust, setTrust] = useState(0);
@@ -50,46 +50,52 @@ export default function Story() {
   }
 
   function enactEffect(effects) {
-    let effectArray = effects.split(",");
-    effectArray.forEach(function(effect) {
-      switch (effect) {
-        case "trustUp":
-          setTrust(trust + 1);
-          break;
-        case "trustDown":
-          setTrust(trust - 1);
-          break;
-        case "courageUp":
-          setCourage(courage + 1);
-          break;
-        case "trustDown":
-          setCourage(courage - 1);
-          break;
-        case "insanityUp":
-          setInsanity(insanity + 1);
-          break;
-        case "trustDown":
-          setInsanity(insanity - 1);
-          break;
-        case "seenForest":
-          console.log("hits forest");
-          setSeenForest(true);
-          break;
-        case "seenOrchard":
-          console.log("hits orchard");
-          setSeenOrchard(true);
-          break;
-        case "seenGarden":
-          setSeenGarden(true);
-          break;
-        case "seenSettlement":
-          setSeenSettlement(true);
-          break;
-        case "entropy":
-          entropy();
-          break;
-      }
-    });
+    if (effects) {
+      let effectArray = effects.split(",");
+      effectArray.forEach(function(effect) {
+        switch (effect) {
+          case "trustUp":
+            setTrust(trust + 1);
+            break;
+          case "trustDown":
+            setTrust(trust - 1);
+            break;
+          case "courageUp":
+            setCourage(courage + 1);
+            break;
+          case "courageDown":
+            setCourage(courage - 1);
+            break;
+          case "insanityUp":
+            setInsanity(insanity + 1);
+            break;
+          case "insanityDown":
+            setInsanity(insanity - 1);
+            break;
+          case "seenForest":
+            setSeenForest(true);
+            break;
+          case "seenOrchard":
+            setSeenOrchard(true);
+            break;
+          case "seenGarden":
+            setSeenGarden(true);
+            break;
+          case "seenSettlement":
+            setSeenSettlement(true);
+            break;
+          case "sculptorTrue":
+            setSculptor(true);
+            break;
+          case "sculptorFalse":
+            setSculptor(false);
+            break;
+          case "entropy":
+            entropy();
+            break;
+        }
+      });
+    }
   }
 
   function selectChoice(e) {

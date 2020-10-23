@@ -101,21 +101,21 @@ export const five = {
     d: {
       text: [
         ["We took a walk around the settlement."],
-        ["It was roughly laid out as a set of concentric rings:"],
+        ["It was laid out as a set of concentric rings:"],
         [
-          "At the outside was the forest, within that the gardens and orchards,"
+          "Just outside was the forest, rising stteply on all but one side. Within that the gardens and orchards,"
         ],
-        ["then within that concentric rings of residential A-frames."],
+        ["The next ring was compsed mostly of the residential A-frames."],
         ["The central rings were composed of the communal buildings:"],
         [
-          "the dining hall, a school for the children, the medical center, a meditation hall and some administrative buildings. "
+          "The dining hall, a school for the children, the medical center, a meditation hall and some administrative buildings. "
         ],
         [
-          "All of the roads in Uoma were asphalt or gravel, except for one dirt path that ran through the mid line of the settlement."
+          "All of the roads in Uoma were asphalt or gravel, except for one dirt path that ran east-west through the settlement."
         ],
-        ["The path was the only unobstructed sightline out of the settlement:"],
+        ["The path was the only unobstructed sightline out of Uoma:"],
         [
-          "standing on it one could see out as far as the edge of Uoma where it passed out into a wide, grassy field."
+          "Standing on the path one could see out as far as the edge of Uoma at which point it opened up into a grassy field then wound up into the hills."
         ],
         ["Sep said the path had been there long before they had built Uoma."],
         [
@@ -123,10 +123,9 @@ export const five = {
         ],
         [
           "It looked like a stupa composed of black, porous stone with a shining metal spire that rose up to meet the sky."
-        ]["I asked Sep what it was and what went on inside."],
-        [
-          "He looked over, as if just noticing its presence for the first time and said,"
         ],
+        ["I asked Sep what it was and what went on inside."],
+        ["He looked over, as if noticing its presence for the first time,"],
         ['"The Shrine? We conduct various rituals there."']
       ],
       choices: choicePreArray
