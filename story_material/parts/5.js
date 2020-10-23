@@ -98,6 +98,38 @@ export const five = {
       ],
       choices: choicePreArray
     },
-    d: {}
+    d: {
+      text: [
+        ["We took a walk around the settlement."],
+        ["It was roughly laid out as a set of concentric rings:"],
+        [
+          "At the outside was the forest, within that the gardens and orchards,"
+        ],
+        ["then within that concentric rings of residential A-frames."],
+        ["The central rings were composed of the communal buildings:"],
+        [
+          "the dining hall, a school for the children, the medical center, a meditation hall and some administrative buildings. "
+        ],
+        [
+          "All of the roads in Uoma were asphalt or gravel, except for one dirt path that ran through the mid line of the settlement."
+        ],
+        ["The path was the only unobstructed sightline out of the settlement:"],
+        [
+          "standing on it one could see out as far as the edge of Uoma where it passed out into a wide, grassy field."
+        ],
+        ["Sep said the path had been there long before they had built Uoma."],
+        [
+          "The Path led to the very center of Uoma, where stood a circular building"
+        ],
+        [
+          "It looked like a stupa composed of black, porous stone with a shining metal spire that rose up to meet the sky."
+        ]["I asked Sep what it was and what went on inside."],
+        [
+          "He looked over, as if just noticing its presence for the first time and said,"
+        ],
+        ['"The Shrine? We conduct various rituals there."']
+      ],
+      choices: choicePreArray
+    }
   }
 };
