@@ -6,6 +6,7 @@ import { four } from "./parts/4.js";
 import { five } from "./parts/5.js";
 import { six } from "./parts/6.js";
 import { seven } from "./parts/7.js";
+import { eight } from "./parts/8.js";
 import { twenty } from "./parts/20.js";
 import { wander_2, found } from "./wander/wander_2.js";
 export const story_json = {
@@ -17,6 +18,7 @@ export const story_json = {
   "5": five,
   "6": six,
   "7": seven,
+  "8": eight,
   "20": twenty,
   wander_2: wander_2,
   found: found

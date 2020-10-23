@@ -8,7 +8,13 @@ const commonArray = [
 const choicePreArray = [
   {
     text: "Within days I fell into the routine of Uoma...",
-    id: { part: 8, sub: "a" }
+    id: { part: 8, sub: "a" },
+    active: "sculptor"
+  },
+  {
+    text: "Within days I fell into the routine of Uoma...",
+    id: { part: 8, sub: "b" },
+    active: "programmer"
   }
 ];
 

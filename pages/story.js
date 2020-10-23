@@ -179,6 +179,12 @@ export default function Story() {
         case "garden":
           return !seenGarden;
           break;
+        case "programmer":
+          return !sculptor;
+          break;
+        case "sculptor":
+          return sculptor;
+          break;
       }
     } else {
       return true;
