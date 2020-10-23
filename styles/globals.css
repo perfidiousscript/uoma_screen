@@ -69,7 +69,8 @@ a {
 }
 
 .gCross {
-  font-size: 7px;
+  font-family: "Classic Console";
+  font-size: 11px;
   float: right;
   transform: rotate(45deg);
   margin: 1% 27% 0% 0;
