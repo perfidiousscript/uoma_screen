@@ -1,18 +1,11 @@
 import Head from "next/head";
 import Link from "next/link";
+import home_button from "../components/home_button.js";
 
 export default function Tips() {
-  function selectedBackground(e) {
-    e.target.style.background = "chartreuse";
-    e.target.style.color = "black";
-  }
-
-  function unselectedBackground(e) {
-    e.target.style.background = "black";
-    e.target.style.color = "chartreuse";
-  }
   return (
     <>
+      {home_button()}
       <div className="text">
         <p>Uoma is a work of interactive fiction.</p>
         <p>
@@ -30,18 +23,6 @@ export default function Tips() {
         </p>
         <p>Life in Uoma is governed by forces distant and ineffable.</p>
         <p>Death in Uoma is only a form of return.</p>
-      </div>
-      <div className="choices">
-        <Link href="/">
-          <span
-            onMouseEnter={selectedBackground}
-            onMouseLeave={unselectedBackground}
-            key="start"
-            className="activeChoice"
-          >
-            Back
-          </span>
-        </Link>
       </div>
     </>
   );

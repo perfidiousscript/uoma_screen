@@ -76,7 +76,28 @@ export const five = {
       ],
       choices: choicePreArray
     },
-    c: { text: [], choices: choicePreArray },
+    c: {
+      text: [
+        ["There was a garden on the North side of Uoma."],
+        ["About ten acres, surrounded by new deer fencing."],
+        ["Already the marigolds and sunflowers had started to bloom."],
+        ["I reached down and ran some of the soil through my fingers,"],
+        ["it was midnight black and smelled fantastic."],
+        ["They were growing vegetables of all kinds:"],
+        [
+          "greens, root vegetables, peppers, squash and they had set up domes for tomatoes."
+        ],
+        ["Plus chickens, goats and pigs."],
+        [
+          "Sep said that all of the food waste and human waste went back into feeding the garden,"
+        ],
+        [
+          "and that in a few years they would be able to grow all of their food there."
+        ],
+        ["Soon enough all of Uoma would be a closed loop."]
+      ],
+      choices: choicePreArray
+    },
     d: {}
   }
 };

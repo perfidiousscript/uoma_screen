@@ -1,3 +1,10 @@
+export const home_logo = ` _   _
+| | | |
+| |_| |
+ \\___/ 
+
+`;
+
 export const g_cross = `
               @@@        
               @@@          

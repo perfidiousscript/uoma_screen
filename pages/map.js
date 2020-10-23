@@ -2,16 +2,6 @@ import Head from "next/head";
 import Link from "next/link";
 
 export default function Map() {
-  function selectedBackground(e) {
-    e.target.style.background = "chartreuse";
-    e.target.style.color = "black";
-  }
-
-  function unselectedBackground(e) {
-    e.target.style.background = "black";
-    e.target.style.color = "chartreuse";
-  }
-
   return (
     <>
       <pre>
@@ -42,18 +32,6 @@ W      PATH        PATH     I   Shrine  I    PATH        PATH         PATH    E
                                  S
       `}
       </pre>
-      <div className="choices">
-        <Link href="/">
-          <span
-            onMouseEnter={selectedBackground}
-            onMouseLeave={unselectedBackground}
-            key="start"
-            className="activeChoice"
-          >
-            Back
-          </span>
-        </Link>
-      </div>
     </>
   );
 }

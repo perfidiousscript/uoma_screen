@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import home_button from "../components/home_button.js";
 
 export default function Home() {
   function selectedBackground(e) {
@@ -13,10 +14,11 @@ export default function Home() {
   }
   return (
     <>
+      {home_button()}
       <div className="text">
         <p>
-          Story, concept and code:
-          <a href="www.perfidiousscript.blogspot.com" rel="nofollow">
+          Story, concept and code:{" "}
+          <a href="http://www.perfidiousscript.blogspot.com" target="_blank">
             <span
               onMouseEnter={selectedBackground}
               onMouseLeave={unselectedBackground}
@@ -25,12 +27,46 @@ export default function Home() {
             </span>
           </a>{" "}
         </p>
-        <p>Design and images: Mike Corrao</p>
+        <p>
+          Design and images:{" "}
+          <a href="http://www.mikecorrao.com/" target="_blank">
+            <span
+              onMouseEnter={selectedBackground}
+              onMouseLeave={unselectedBackground}
+            >
+              Mike Corrao
+            </span>
+          </a>
+        </p>
         <br />
-        <p>Generated using Next.js</p>
+        <p>
+          The code for this project can be found on{" "}
+          <a href="https://github.com/perfidiousscript/uoma_screen">
+            <span
+              onMouseEnter={selectedBackground}
+              onMouseLeave={unselectedBackground}
+            >
+              github.
+            </span>
+          </a>
+        </p>
+        <p> Pull requests welcome.</p>
+        <br />
+        <p>
+          Generated using{" "}
+          <a href="https://nextjs.org/" target="_blank">
+            {" "}
+            <span
+              onMouseEnter={selectedBackground}
+              onMouseLeave={unselectedBackground}
+            >
+              Next.js
+            </span>
+          </a>
+        </p>
         <p>
           Logos generated with Patrick Gillespie's{" "}
-          <a href="http://patorjk.com/software/taag/">
+          <a href="http://patorjk.com/software/taag/" target="_blank">
             <span
               onMouseEnter={selectedBackground}
               onMouseLeave={unselectedBackground}
@@ -39,18 +75,6 @@ export default function Home() {
             </span>
           </a>
         </p>
-      </div>
-      <div className="choices">
-        <Link href="/">
-          <span
-            onMouseEnter={selectedBackground}
-            onMouseLeave={unselectedBackground}
-            key="start"
-            className="activeChoice"
-          >
-            Back
-          </span>
-        </Link>
       </div>
     </>
   );

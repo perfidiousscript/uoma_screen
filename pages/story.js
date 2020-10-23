@@ -4,11 +4,12 @@ import { useEffect, useState } from "react";
 import styles from "../styles/Home.module.css";
 import { story_json } from "../story_material/story.js";
 import cookieCutter from "cookie-cutter";
+import home_button from "../components/home_button.js";
 
 export default function Story() {
   var [selectLock, setSelectLock] = useState(true);
-  var [currentPart, setCurrentPart] = useState(null);
-  var [currentSubPart, setCurrentSubPart] = useState(null);
+  var [currentPart, setCurrentPart] = useState("5");
+  var [currentSubPart, setCurrentSubPart] = useState("c");
   var [readThroughNumber, setReadThroughNumber] = useState(null);
 
   var [seenForest, setSeenForest] = useState(false);
@@ -247,6 +248,7 @@ export default function Story() {
 
   return (
     <>
+      {home_button()}
       <Link href="/map">
         <span
           onMouseEnter={selectedBackground}
@@ -265,7 +267,6 @@ export default function Story() {
         <span className="displayCarat">> </span>
         <p className="textLine currentLine"> {shownText} </p>
       </div>
-
       <div className="choices" style={displayChoices()}>
         {generateChoices()}
       </div>
