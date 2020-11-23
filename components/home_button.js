@@ -17,7 +17,7 @@ export default function home_button() {
   return (
     <Link href="/">
       <pre
-        class="homeButton"
+        className="homeButton"
         onMouseEnter={selectedBackground}
         onMouseLeave={unselectedBackground}
       >

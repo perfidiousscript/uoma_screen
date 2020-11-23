@@ -28,7 +28,7 @@ export default function Home() {
           </a>{" "}
         </p>
         <p>
-          Design and images:{" "}
+          Home page design and images:{" "}
           <a href="http://www.mikecorrao.com/" target="_blank">
             <span
               onMouseEnter={selectedBackground}

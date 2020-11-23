@@ -8,8 +8,8 @@ import home_button from "../components/home_button.js";
 
 export default function Story() {
   var [selectLock, setSelectLock] = useState(true);
-  var [currentPart, setCurrentPart] = useState("5");
-  var [currentSubPart, setCurrentSubPart] = useState("c");
+  var [currentPart, setCurrentPart] = useState("wander_2");
+  var [currentSubPart, setCurrentSubPart] = useState("aFrameNar");
   var [readThroughNumber, setReadThroughNumber] = useState(null);
 
   var [seenForest, setSeenForest] = useState(false);
