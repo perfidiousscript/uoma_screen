@@ -364,14 +364,16 @@ export const wander_1 = {
           "He didn`t turn when I spoke, didn`t respond to my presence at all, just continued plodding along the path toward the shrine as if pulled toward it by some force."
         ]
       ],
-      choices: [{
-        text: "I moved around between the man and the shrine.",
-        id: { part: "16", sub: "a", active: }
-      },
-      {
-        text: "(W) I walked to the Shrine",
-        id: { part: "16", sub: "b" }
-      }]
+      choices: [
+        {
+          text: "I moved around between the man and the shrine.",
+          id: { part: "16", sub: "a", active: "courageOverZero" }
+        },
+        {
+          text: "(W) I walked to the Shrine",
+          id: { part: "16", sub: "b", active: "courageUnderTwo" }
+        }
+      ]
     }
   }
 };

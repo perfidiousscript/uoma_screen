@@ -185,6 +185,12 @@ export default function Story() {
         case "sculptor":
           return sculptor;
           break;
+        case "courageOverZero":
+          return courage > 0;
+          break;
+        case "courageUnderTwo":
+          return courage < 2;
+          break;
       }
     } else {
       return true;
