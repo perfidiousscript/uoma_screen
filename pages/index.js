@@ -124,6 +124,16 @@ export default function Home() {
               About
             </span>
           </Link>
+          <Link href="/playlist">
+            <span
+              onMouseEnter={selectedBackground}
+              onMouseLeave={unselectedBackground}
+              key="about"
+              className="activeChoice"
+            >
+              Playlist
+            </span>
+          </Link>
         </div>
       </div>
     </>

@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Link from "next/link";
 import home_button from "../components/home_button.js";
 
 export default function Tips() {
