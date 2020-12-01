@@ -61,7 +61,7 @@ export const fifteen = {
           text: [
             '"It`s time for evening meal." Sep said, turning. "Let`s go get something to eat."'
           ],
-          id: { part: "18", sub: "a" }
+          id: { part: "16", sub: "a" }
         }
       ]
     }
