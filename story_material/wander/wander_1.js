@@ -338,20 +338,23 @@ export const wander_1 = {
         ["He stopped, stooped and picked up a rock from beside the Path."],
         [
           'Speaking directly at the rock, he said, "Which way? Which way!" He spoke strangely too, as if his mouth was filled with somthing, of as if he had not spoken for a long time.'
-        ][
+        ],
+        [
           "He continued along the path toward the shrine, carrying the rock absently, like a child`s doll."
         ],
         [
           '"Oh Shit." I looked over to see James, the logger, standing nearby. He was on edge.'
         ],
         ['"Where did he come from?" '],
-        ['"I donno," I said, "down the path I guess?"'][
+        ['"I donno," I said, "down the path I guess?"'],
+        [
           '"I`ve got to go find Sep. Make sure he doesn`t break into the Shrine."'
         ],
         ["James took a few steps away then turned to me."],
         [
           '"Don`t look into its eyes--his eyes, and and don`t let him touch you."'
-        ]["James set off at a jog and disappeared behind an A-frame."],
+        ],
+        ["James set off at a jog and disappeared behind an A-frame."],
         ["I followed the man."],
         [
           "He continued to stagger forward in that off kilter way, looking around at the sky then back toward the ground."
@@ -359,7 +362,8 @@ export const wander_1 = {
         ["He held up the rock again, squinting at it."],
         [
           "At least it seemed to be a rock, perhaps it was nothing more than a clump of dirt, as it crumbled in his hand into a fine powder which fell to the earth."
-        ]['"Excuse me can I help you with something?"'],
+        ],
+        ['"Excuse me can I help you with something?"'],
         [
           "He didn`t turn when I spoke, didn`t respond to my presence at all, just continued plodding along the path toward the shrine as if pulled toward it by some force."
         ]
@@ -367,11 +371,11 @@ export const wander_1 = {
       choices: [
         {
           text: "I moved around between the man and the shrine.",
-          id: { part: "16", sub: "a", active: "courageOverZero" }
+          id: { part: "14", sub: "a", active: "courageOverZero" }
         },
         {
-          text: "(W) I walked to the Shrine",
-          id: { part: "16", sub: "b", active: "courageUnderTwo" }
+          text: "(W) I followed behind him.",
+          id: { part: "14", sub: "b", active: "courageUnderTwo" }
         }
       ]
     }
