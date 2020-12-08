@@ -16,6 +16,7 @@ import { fourteen } from "./parts/14.js";
 import { fifteen } from "./parts/15.js";
 import { sixteen } from "./parts/16.js";
 import { seventeen } from "./parts/17.js";
+import { eighteen } from "./parts/18.js";
 import { twenty } from "./parts/20.js";
 import { wander_1 } from "./wander/wander_1.js";
 import { wander_2, found } from "./wander/wander_2.js";
@@ -38,6 +39,7 @@ export const story_json = {
   "15": fifteen,
   "16": sixteen,
   "17": seventeen,
+  "18": eighteen,
   "20": twenty,
   wander_1: wander_1,
   wander_2: wander_2,
