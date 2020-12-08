@@ -191,6 +191,12 @@ export default function Story() {
         case "courageUnderTwo":
           return courage < 2;
           break;
+        case "trustOverCourage":
+          return trust - courage > 0;
+          break;
+        case "courageOverTrust":
+          return courage - trust > 0;
+          break;
       }
     } else {
       return true;
