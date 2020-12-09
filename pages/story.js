@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import styles from "../styles/Home.module.css";
 import { story_json } from "../story_material/story.js";
@@ -11,6 +12,7 @@ export default function Story() {
   var [currentPart, setCurrentPart] = useState("wander_2");
   var [currentSubPart, setCurrentSubPart] = useState("aFrameNar");
   var [readThroughNumber, setReadThroughNumber] = useState(null);
+  var [textVisible, setTextVisible] = useState(true);
 
   var [seenForest, setSeenForest] = useState(false);
   var [seenOrchard, setSeenOrchard] = useState(false);
@@ -148,6 +150,11 @@ export default function Story() {
     if (textArrayIndex < textArray.length - 1) {
       let new_length = textArrayIndex + 1;
       setTextArrayIndex(new_length);
+    } else if (currentPart === "ending") {
+      setTextVisible(false);
+      setTimeout(() => {
+        useRouter().push("/index");
+      }, 2500);
     }
   }
 
@@ -252,7 +259,7 @@ export default function Story() {
       setCurrentPart(cookieCutter.get("part"));
       setCurrentSubPart(cookieCutter.get("subPart"));
     } else {
-      setCurrentPart("0");
+      setCurrentPart("ending");
       setCurrentSubPart("a");
     }
     setSelectLock(false);
@@ -289,7 +296,7 @@ export default function Story() {
           Map
         </span>
       </Link>
-      <div className="text">
+      <div className={textVisible ? "text" : "hidden"}>
         <p className="textLine lastLine"> {shownText_4} </p>
         <p className="textLine lastLine"> {shownText_3} </p>
         <p className="textLine lastLine"> {shownText_2} </p>
