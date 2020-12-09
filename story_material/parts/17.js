@@ -4,14 +4,14 @@ const choiceArray = [
       "I figured that Sep would talk about what happened to day, that I might get some answers so I went to to the meditation hall."
     ],
     id: { part: "20", sub: "a" },
-    active: trustOverCourage
+    active: "trustOverCourage"
   },
   {
     text: [
       "I couldn`t care less what Sep might have to talk about and went back to my A-Frame."
     ],
     id: { part: "20", sub: "b" },
-    active: courageOverTrust
+    active: "courageOverTrust"
   }
 ];
 const announcement = [
