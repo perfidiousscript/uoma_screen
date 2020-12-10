@@ -8,6 +8,8 @@ import cookieCutter from "cookie-cutter";
 import home_button from "../components/home_button.js";
 
 export default function Story() {
+  const router = useRouter();
+
   var [selectLock, setSelectLock] = useState(true);
   var [currentPart, setCurrentPart] = useState("wander_2");
   var [currentSubPart, setCurrentSubPart] = useState("aFrameNar");
@@ -136,6 +138,12 @@ export default function Story() {
           setTimeout(() => {
             advanceLine();
           }, 500);
+        } else if (currentPart === "ending") {
+          console.log("hits the else");
+          setTextVisible(false);
+          setTimeout(() => {
+            router.push("/");
+          }, 2500);
         }
       }
     }
@@ -150,11 +158,6 @@ export default function Story() {
     if (textArrayIndex < textArray.length - 1) {
       let new_length = textArrayIndex + 1;
       setTextArrayIndex(new_length);
-    } else if (currentPart === "ending") {
-      setTextVisible(false);
-      setTimeout(() => {
-        useRouter().push("/index");
-      }, 2500);
     }
   }
 

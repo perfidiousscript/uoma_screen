@@ -30,18 +30,13 @@ export const ending = {
         ["My body..."],
         ["My mind..."],
         ["My soul..."],
-        ["D"],
-        ["O"],
-        ["N"],
-        ["A"],
-        ["S"]
+        ["D "],
+        ["O "],
+        ["N "],
+        ["A "],
+        ["S "]
       ],
-      choices: [
-        {
-          text: ["RETURN"],
-          id: { part: "return", sub: "return", effect: "entropy" }
-        }
-      ]
+      choices: []
     }
   }
 };
