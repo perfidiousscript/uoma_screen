@@ -51,6 +51,8 @@ export default function Story() {
     } else {
       cookieCutter.set("readThroughNumber", 0);
     }
+    cookieCutter.set("part", "0");
+    cookieCutter.set("subPart", "a");
   }
 
   function enactEffect(effects) {
@@ -94,9 +96,6 @@ export default function Story() {
           case "sculptorFalse":
             setSculptor(false);
             break;
-          case "entropy":
-            entropy();
-            break;
         }
       });
     }
@@ -139,9 +138,9 @@ export default function Story() {
             advanceLine();
           }, 500);
         } else if (currentPart === "ending") {
-          console.log("hits the else");
           setTextVisible(false);
           setTimeout(() => {
+            entropy();
             router.push("/");
           }, 2500);
         }
