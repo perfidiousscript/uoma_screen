@@ -43,6 +43,57 @@ export const ending = {
         ["S "]
       ],
       choices: []
+    },
+    b: {
+      text: [
+        ["I removed the covering from the object on the plinth."],
+        ["How the light filled the room."],
+        [
+          "An indigo light of the greatest intensity, it filled all the the space and the matter in the room."
+        ],
+        ["And it filled me."],
+        ["What knowledge."],
+        ["What loathing."],
+        [
+          "A thousand voices, screaming and whispering at once and the shape of all things suddenly became clear."
+        ],
+        ["And the light filled me and spoke its name, once."],
+        ["Donas."]
+      ],
+      choices: []
+    },
+    c: {
+      text: [
+        ["I removed the covering from the object on the plinth."],
+        ["How the light filled the room."],
+        [
+          "An indigo light of the greatest intensity, filling the space, the matter, the cracks, everything."
+        ]["And it filled me."],
+        ["What knowledge."],
+        ["What loathing."],
+        [
+          "A thousand voices, screaming and whispering at once and the shape of all things suddenly became clear."
+        ],
+        [
+          "But I could see through the light, could see the object that had been hidden underneath."
+        ],
+        [
+          "Like a small corpse, pale white and naked, whose misshapen head was far too large for its body."
+        ],
+        [
+          "Something which had never been born and always on the verge of death, somehow always dying."
+        ],
+        [
+          "It shuddered, somewhere between life and death, those voices all coming from within it."
+        ],
+        [
+          "And I could hear I was speaking its name, screaming and whispering its name again and again."
+        ],
+        ["Donas."],
+        ["Donas."],
+        ["Donas."]
+      ],
+      choices: []
     }
   }
 };
