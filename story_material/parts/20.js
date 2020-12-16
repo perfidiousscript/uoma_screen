@@ -1,6 +1,34 @@
 export const twenty = {
   "0": {
-    a: { text: [], choices: [] },
+    a: {
+      text: [
+        ["It was totally dark out, and growing cold."],
+        [
+          "Everyone dispersed back to their A-frames and it felt quiet. Lonely."
+        ],
+        [
+          "As I turned the corner around Sep`s A-frame a flashlight beam fell onto me."
+        ],
+        ['"Who`s there?"'],
+        ["I had to hold up my hand to block the light."],
+        ['"Why aren`t you at Sep`s talk?"'],
+        ['"It`s over."'],
+        [
+          "The flashlight beam fell away. It was Bob. He looked jittery and confused."
+        ],
+        ['"Okay well...get back to your A-frame."'],
+        ["Back in my A-frame I lay on my bed in the dark."],
+        ["I didn`t know what this place was, where I ended up."][
+          "It grew cold in the A-frame. I didn1t feel like getting up to change clothes so I just pulled the blanket over myself"
+        ]
+      ],
+      choices: [
+        {
+          text: ["It took me hours to fall asleep."],
+          id: { part: "21", sub: "a" }
+        }
+      ]
+    },
     b: {
       text: [
         ["Evening was falling."],
