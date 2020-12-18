@@ -200,6 +200,12 @@ export default function Story() {
         case "courageUnderTwo":
           return courage < 2;
           break;
+        case "trustOverTwo":
+          return trust > 2;
+          break;
+        case "trustUnderOne":
+          return trust < 1;
+          break;
         case "insanityEqualsZero":
           return insanity === 0;
           break;
