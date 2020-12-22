@@ -169,7 +169,6 @@ export default function Story() {
 
   //
   function checkActive(activeVal) {
-    console.log("activeVal", activeVal);
     if (activeVal) {
       switch (activeVal) {
         case "orchard":
@@ -232,7 +231,6 @@ export default function Story() {
   //Iterates over the part's choices and only adds those that are active.
   function generateChoices() {
     var compiledChoices = [];
-    console.log("choices", choices);
     choices.map(function(choice, index) {
       if (checkActive(choice.active)) {
         compiledChoices.push(
