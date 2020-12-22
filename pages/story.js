@@ -11,10 +11,11 @@ export default function Story() {
   const router = useRouter();
 
   var [selectLock, setSelectLock] = useState(true);
-  var [currentPart, setCurrentPart] = useState("wander_2");
-  var [currentSubPart, setCurrentSubPart] = useState("aFrameNar");
+  var [currentPart, setCurrentPart] = useState(null);
+  var [currentSubPart, setCurrentSubPart] = useState(null);
   var [readThroughNumber, setReadThroughNumber] = useState(null);
   var [textVisible, setTextVisible] = useState(true);
+  var [displayChoices, setDisplayChoices] = useState(null);
 
   var [seenForest, setSeenForest] = useState(false);
   var [seenOrchard, setSeenOrchard] = useState(false);
@@ -45,6 +46,7 @@ export default function Story() {
     e.target.style.color = "chartreuse";
   }
 
+  //Resets the state and cookies at the end of a read through.
   function entropy() {
     if (readThroughNumber < 3) {
       cookieCutter.set("readThroughNumber", readThroughNumber + 1);
@@ -55,6 +57,7 @@ export default function Story() {
     cookieCutter.set("subPart", "a");
   }
 
+  //Various effects run during certain choices.
   function enactEffect(effects) {
     if (effects) {
       let effectArray = effects.split(",");
@@ -101,6 +104,7 @@ export default function Story() {
     }
   }
 
+  //Code to run when user clicks on a choice.
   function selectChoice(e) {
     setCurrentPart(e.target.dataset.part);
     setCurrentSubPart(e.target.dataset.sub);
@@ -125,6 +129,7 @@ export default function Story() {
     setShownText(newText);
   }
 
+  //Prints each line one letter at a time with some semi-random timing.
   function printText(text) {
     if (textArray.length > 0) {
       if (textArrayIndex <= textArray.length) {
@@ -133,6 +138,7 @@ export default function Story() {
           setTimeout(() => {
             advanceText(text);
           }, jitter);
+          return true;
         } else if (textArrayIndex < textArray.length - 1) {
           setTimeout(() => {
             advanceLine();
@@ -148,6 +154,7 @@ export default function Story() {
     }
   }
 
+  //Advances the line at the end of line.
   function advanceLine() {
     setShownText_4(shownText_3);
     setShownText_3(shownText_2);
@@ -160,20 +167,9 @@ export default function Story() {
     }
   }
 
-  // We only want to display the choices when the last character of the
-  // last element of the text array has been printed.
-  function displayChoices() {
-    if (textArray[textArrayIndex]) {
-      if (
-        textArrayIndex < textArray.length - 1 ||
-        shownText.length < textArray[textArrayIndex][0].length
-      ) {
-        return { display: "none" };
-      }
-    }
-  }
-
+  //
   function checkActive(activeVal) {
+    console.log("activeVal", activeVal);
     if (activeVal) {
       switch (activeVal) {
         case "orchard":
@@ -224,6 +220,7 @@ export default function Story() {
     }
   }
 
+  //Adds a link to the map during wander section.
   function mapVisible() {
     if (currentPart && currentPart.match(/wander/)) {
       return "activeChoice";
@@ -232,9 +229,10 @@ export default function Story() {
     }
   }
 
+  //Iterates over the part's choices and only adds those that are active.
   function generateChoices() {
     var compiledChoices = [];
-
+    console.log("choices", choices);
     choices.map(function(choice, index) {
       if (checkActive(choice.active)) {
         compiledChoices.push(
@@ -256,6 +254,9 @@ export default function Story() {
     return compiledChoices;
   }
 
+  //Checks the cookies for a saved place,
+  //Puts a saved place into state if it exists,
+  //Otherwise starts at part 0a
   useEffect(() => {
     if (cookieCutter.get("readThroughNumber")) {
       setReadThroughNumber(cookieCutter.get("readThroughNumber"));
@@ -267,16 +268,33 @@ export default function Story() {
       setCurrentPart(cookieCutter.get("part"));
       setCurrentSubPart(cookieCutter.get("subPart"));
     } else {
-      setCurrentPart("ending");
+      setCurrentPart("21");
       setCurrentSubPart("a");
     }
     setSelectLock(false);
   }, []);
 
+  //Used to initiate text printing.
   useEffect(() => {
     printText(shownText);
   }, [textArray, shownText, currentPart]);
 
+  // We only want to display the choices when the last character of the
+  // last element of the text array has been printed.
+  useEffect(() => {
+    if (textArray[textArrayIndex]) {
+      if (
+        textArrayIndex < textArray.length - 1 ||
+        shownText.length < textArray[textArrayIndex][0].length
+      ) {
+        setDisplayChoices(false);
+      } else {
+        setDisplayChoices(true);
+      }
+    }
+  }, [shownText]);
+
+  //Update textArray when part is changed.
   useEffect(() => {
     if (!selectLock) {
       console.log("currentPart:", currentPart);
@@ -312,9 +330,7 @@ export default function Story() {
         <span className="displayCarat">> </span>
         <p className="textLine currentLine"> {shownText} </p>
       </div>
-      <div className="choices" style={displayChoices()}>
-        {generateChoices()}
-      </div>
+      <div className="choices">{displayChoices && generateChoices()}</div>
     </>
   );
 }
