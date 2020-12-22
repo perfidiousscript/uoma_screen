@@ -17,22 +17,26 @@ export const twentyOne = {
       ],
       choices: [
         {
-          text: "It all seemed to strange, and I left early to to work.",
-          id: { part: "21", sub: "a", active: "programmer" }
+          text: "It all seemed to strange, and I left early to work.",
+          id: { part: "21", sub: "a" },
+          active: "programmer"
         },
         {
-          text: "It all seemed to strange, and I left early to to work.",
-          id: { part: "21", sub: "b", active: "sculptor" }
-        },
-        {
-          text:
-            "I needed to get some closure on the previous day's events and left early to talk to Sep.",
-          id: { part: "21", sub: "c", active: "trustUnderTwo" }
+          text: "It all seemed to strange, and I left early to work.",
+          id: { part: "21", sub: "b" },
+          active: "sculptor"
         },
         {
           text:
             "I needed to get some closure on the previous day's events and left early to talk to Sep.",
-          id: { part: "21", sub: "d", active: "trustOverOne" }
+          id: { part: "21", sub: "c" },
+          active: "trustUnderTwo"
+        },
+        {
+          text:
+            "I needed to get some closure on the previous day's events and left early to talk to Sep.",
+          id: { part: "21", sub: "d" },
+          active: "trustOverOne"
         }
       ]
     }
