@@ -1,21 +1,17 @@
-const firstChoices = {}; //"I couldn't stop thinking about the shrine and what might be inside."/
-//"I couldn't stop thinking about the intruder into Uoma, and why those men in the dining room had call him an 'Ash-Burner'.
-
-const aChoices = {
-  ...firstChoices,
-  ...{
-    text: "I decided that I had to get rid of them.",
-    id: { part: "23", sub: "f" }
+const firstChoices = [
+  {
+    text: [
+      "I couldn't stop thinking about the shrine and what might be inside."
+    ],
+    id: { part: "23", sub: "a" }
+  },
+  {
+    text: [
+      "I couldn't stop thinking about the intruder into Uoma, and why those men in the dining room had call him an 'Ash-Burner'."
+    ],
+    id: { part: "23", sub: "b" }
   }
-};
-
-const bChoices = {
-  ...firstChoices,
-  ...{
-    text: "I decided that I had to get rid of them.",
-    id: { part: "23", sub: "g" }
-  }
-};
+];
 
 const sepArrayOne = [
   ["I walked over to Sep's place."],
@@ -39,11 +35,6 @@ const sepArrayTwo = [
   ["I heard her talking in another room and a few moments later Sep appeared."]
 ];
 
-const secondChoices = {};
-//(Courage over two, Trust over two)"What is an Ash Burner, Sep."
-//(Courage over two, Trust under two)"What is an Ash Burner, Sep."
-//(Courage under two, Trust over two)"What is an Ash Burner, Sep."
-
 //a: Nar is a programmer, back at their studio
 //b: Nar is a sculptor, back at their stufio
 //c: Nar goes to Sep's, low trust.
@@ -54,7 +45,7 @@ export const twentyTwo = {
     a: {
       text: [
         ["I sat down at the terminal."],
-        ["The cursor, blinking green, held a mocking air ."],
+        ["The cursor, blinking green, seemed to be mocking me."],
         [
           "Sep's notes lay spread out on the desk. I had always prided myself on being a tidy person, but trying tryin to make sense of his notes threw me for a loop."
         ],
@@ -63,14 +54,18 @@ export const twentyTwo = {
         ],
         ["My mind wandered away from the terminal."],
         [
-          "I couldn't help but feel that all the papers were cluttering up my mind."
+          "I couldn't help but feel that all the papers that were cluttering up my space were cluttering up my mind as well."
         ],
         ["That their presence was more of a hindrance than a help."],
         [
-          "A great weighed down on me, the pressure of this project, the stress of knowing that Sep expected so much of me."
+          "A great weight bore down on me, the pressure of this project, the stress of knowing that Sep expected so much of me."
         ]
       ],
-      choices: aChoices
+      choices: firstChoices.concat({
+        text:
+          "I couldn't stop thinking about the papers. I decided that I had to get rid of them.",
+        id: { part: "23", sub: "c" }
+      })
     },
     b: {
       text: [
@@ -88,7 +83,11 @@ export const twentyTwo = {
           "I had worked hard to make them, but the seemed instilled with something alien, as if they had been made by another had and placed in my studio to menace me."
         ]
       ],
-      choices: bChoices
+      choices: firstChoices.concat({
+        text:
+          "I couldn't stop thinking about the sculptures. I decided that I had to get rid of them.",
+        id: { part: "23", sub: "d" }
+      })
     },
     c: {
       text: sepArrayOne
@@ -100,7 +99,7 @@ export const twentyTwo = {
         ])
         .concat(sepArrayTwo),
       choices: [
-        { text: ["He waved me in silently"], id: { part: "23", id: "h" } }
+        { text: ["He waved me in silently"], id: { part: "24", id: "a" } }
       ]
     },
     d: {
@@ -115,7 +114,7 @@ export const twentyTwo = {
         ])
         .concat(sepArrayTwo),
       choices: [
-        { text: ["Sep smiled and waved me in."], id: { part: "23", id: "i" } }
+        { text: ["Sep smiled and waved me in."], id: { part: "24", id: "b" } }
       ]
     }
   }
