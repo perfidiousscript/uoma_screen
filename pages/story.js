@@ -266,7 +266,7 @@ export default function Story() {
       setCurrentPart(cookieCutter.get("part"));
       setCurrentSubPart(cookieCutter.get("subPart"));
     } else {
-      setCurrentPart("21");
+      setCurrentPart("22");
       setCurrentSubPart("a");
     }
     setSelectLock(false);

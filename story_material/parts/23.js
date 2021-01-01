@@ -43,7 +43,7 @@ export const twentyThree = {
       choices: [
         {
           text: [
-            "A group of kids came down the path toward me. I figured I might be able to ask them."
+            "A group of kids came down the path toward me. I figured they might be more open to answering question."
           ],
           id: { part: "25", sub: "a" }
         }
@@ -78,6 +78,44 @@ export const twentyThree = {
           id: { part: "25", sub: "b" }
         }
       ]
+    },
+    c: {
+      text: [
+        ["I gathered up all the papers, tried to stack them into a bundle."],
+        [
+          "Perhaps I should have felt bad for getting rid of Sep's work, but I didn't."
+        ],
+        ["I tried to think of the best place to get rid of them."]
+      ],
+      choices: [
+        {
+          text: ["It seemed best to just take them back to Sep."],
+          id: { part: "25", sub: "c" }
+        },
+        {
+          text: [
+            "It seemed best to take the path out of Uoma and burn them there."
+          ],
+          id: { part: "25", sub: "d", active: "courageOverTrust" }
+        },
+        {
+          text: [
+            "It seemed best to take them to one of the burn piles out in the orchard."
+          ],
+          id: [{ part: "25", sub: "e", active: "courageOverTrust" }]
+        }
+      ]
+    },
+    d: {
+      text: [
+        [
+          "I dropped all the sculptures into a crate, and put this into a wheelbarrow outside."
+        ],
+        [
+          "Perhaps I should have felt bad for getting rid of all this work, but I didn't"
+        ]
+      ],
+      choices: []
     }
   }
 };
