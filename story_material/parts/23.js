@@ -113,6 +113,9 @@ export const twentyThree = {
         ],
         [
           "Perhaps I should have felt bad for getting rid of all this work, but I didn't"
+        ],
+        [
+          "Not only did they appear mocking and grotesque, they seemed to symbolize all of my failure up to this point."
         ]
       ],
       choices: []
