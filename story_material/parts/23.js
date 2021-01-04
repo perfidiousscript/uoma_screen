@@ -100,25 +100,36 @@ export const twentyThree = {
         },
         {
           text: [
-            "It seemed best to take them to one of the burn piles out in the orchard."
+            "It seemed best to take them to one of the burn piles out in the orchard and burn them there."
           ],
-          id: [{ part: "25", sub: "e", active: "courageOverTrust" }]
+          id: { part: "25", sub: "e" }
         }
       ]
     },
     d: {
       text: [
-        [
-          "I dropped all the sculptures into a crate, and put this into a wheelbarrow outside."
-        ],
+        ["I moved all the sculptures in a wheelbarrow outside."],
         [
           "Perhaps I should have felt bad for getting rid of all this work, but I didn't"
         ],
         [
-          "Not only did they appear mocking and grotesque, they seemed to symbolize all of my failure up to this point."
+          "Not only did they appear mocking and grotesque, they seemed to symbolize all of my failure up to that point."
         ]
       ],
-      choices: []
+      choices: [
+        {
+          text: [
+            "It seemed best to take them out on the path and drop them there"
+          ],
+          id: { part: "25", sub: "f" }
+        },
+        {
+          text: [
+            "It seemed best to take them back to Sep to see what he thought."
+          ],
+          id: { part: "25", sub: "g" }
+        }
+      ]
     }
   }
 };
