@@ -99,7 +99,7 @@ export const twentyTwo = {
         ])
         .concat(sepArrayTwo),
       choices: [
-        { text: ["He waved me in silently"], id: { part: "24", id: "a" } }
+        { text: ["He nodded at me silently"], id: { part: "24", id: "a" } }
       ]
     },
     d: {
