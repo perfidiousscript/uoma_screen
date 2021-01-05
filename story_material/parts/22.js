@@ -20,7 +20,7 @@ const sepArrayOne = [
 
 const sepArrayTwo = [
   ["When I knocked on Sep's door a young woman I had never seen answered."],
-  ["She was short, with a mousey look and younger than me."],
+  ["She was short, younger than me with a mousey look about her."],
   ["'Can I help you?'"],
   ["She seemed dour, disinterested in me or my presence."],
   ["'I'm here to see Sep.'"],
